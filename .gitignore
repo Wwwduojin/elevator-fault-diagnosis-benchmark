@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+
+# Model outputs can contain sensitive prompts, proprietary data, or API responses.
+predictions/*.jsonl
+predictions/*.json
+outputs/
+
+# Local generated data
+generated_testset/

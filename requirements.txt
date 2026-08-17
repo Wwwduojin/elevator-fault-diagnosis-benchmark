@@ -1,0 +1,3 @@
+# The released evaluator and test-set builder use the Python standard library.
+# Optional dependency for CSV export in build_testset.py:
+pandas>=2.0
