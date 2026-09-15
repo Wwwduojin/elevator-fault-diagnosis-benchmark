@@ -1,0 +1,500 @@
+{"row_index": 0, "answer": ["B", "D", "F", "G", "H"], "output": "\\boxed{BDFGH}"}
+{"row_index": 1, "answer": ["B", "G", "J"], "output": "\\boxed{ABCEFGHIJ}"}
+{"row_index": 2, "answer": ["H", "I"], "output": "\\boxed{BCDEFHIJ}"}
+{"row_index": 3, "answer": ["A", "B", "C", "F", "H", "I", "J"], "output": "\\boxed{BCFHIJ}"}
+{"row_index": 4, "answer": ["A", "C", "D", "E", "F", "G", "H", "I", "J"], "output": "\\boxed{CDEFGHIJ}"}
+{"row_index": 5, "answer": ["B", "C", "G", "H"], "output": "\\boxed{BCG}"}
+{"row_index": 6, "answer": ["A", "B", "C", "D", "G", "I"], "output": "\\boxed{ABCDGI}"}
+{"row_index": 7, "answer": ["E", "F"], "output": "\\boxed{ADEFGHI}"}
+{"row_index": 8, "answer": ["F", "H", "J"], "output": "\\boxed{FHJ}"}
+{"row_index": 9, "answer": ["H", "I"], "output": "\\boxed{ACDEHI}"}
+{"row_index": 10, "answer": ["A", "C", "D", "E", "F", "G", "H", "I"], "output": "\\boxed{ACDEFGHI}"}
+{"row_index": 11, "answer": ["A", "B", "D"], "output": "\\boxed{ABCDEHI}"}
+{"row_index": 12, "answer": ["A", "D", "E", "F", "I", "J"], "output": "\\boxed{ADEFIJ}"}
+{"row_index": 13, "answer": ["C", "G", "H"], "output": "\\boxed{CGH}"}
+{"row_index": 14, "answer": ["F", "G", "H"], "output": "\\boxed{ABCEFGH}"}
+{"row_index": 15, "answer": ["B", "C", "D", "E", "F", "H", "J"], "output": "\\boxed{ABCEFHJ}"}
+{"row_index": 16, "answer": ["A", "J"], "output": "\\boxed{J}"}
+{"row_index": 17, "answer": ["I", "J"], "output": "\\boxed{DGIJ}"}
+{"row_index": 18, "answer": ["F", "H", "I"], "output": "\\boxed{ABCDFGHI}"}
+{"row_index": 19, "answer": ["A", "B", "C", "D", "I", "J"], "output": "\\boxed{BCDFIJ}"}
+{"row_index": 20, "answer": ["E", "G"], "output": "\\boxed{AEG}"}
+{"row_index": 21, "answer": ["D", "E", "I"], "output": "\\boxed{ABDI}"}
+{"row_index": 22, "answer": ["A", "E", "F", "G"], "output": "\\boxed{AEFG}"}
+{"row_index": 23, "answer": ["D", "E", "G"], "output": "\\boxed{ABCDFGIJ}"}
+{"row_index": 24, "answer": ["B", "C", "G"], "output": "\\boxed{BCEGHI}"}
+{"row_index": 25, "answer": ["A", "B", "C", "E", "F", "G", "H", "J"], "output": "\\boxed{ABCEFGHJ}"}
+{"row_index": 26, "answer": ["B", "D", "G", "J"], "output": "\\boxed{BDGJ}"}
+{"row_index": 27, "answer": ["C", "E", "F", "G", "H", "I"], "output": "\\boxed{ACDEFGHIJ}"}
+{"row_index": 28, "answer": ["A", "D"], "output": "\\boxed{BDJ}"}
+{"row_index": 29, "answer": ["B", "C", "D", "E", "F", "I", "J"], "output": "\\boxed{ABCDEIJ}"}
+{"row_index": 30, "answer": ["G", "I"], "output": "\\boxed{FGI}"}
+{"row_index": 31, "answer": ["B", "C", "D", "I", "J"], "output": "\\boxed{BCDIJ}"}
+{"row_index": 32, "answer": ["B", "C", "F", "H", "I"], "output": "\\boxed{BCFHI}"}
+{"row_index": 33, "answer": ["G", "I", "J"], "output": "\\boxed{GIJ}"}
+{"row_index": 34, "answer": ["A", "B", "F", "G", "H"], "output": "\\boxed{ABEFGHJ}"}
+{"row_index": 35, "answer": ["A", "B", "C", "D", "F", "G", "H", "J"], "output": "\\boxed{ABCDFGHJ}"}
+{"row_index": 36, "answer": ["C", "D", "H"], "output": "\\boxed{DGH}"}
+{"row_index": 37, "answer": ["C", "F", "H", "J"], "output": "\\boxed{BCFHJ}"}
+{"row_index": 38, "answer": ["B", "C", "D", "F", "G", "H", "I", "J"], "output": "\\boxed{BCDFGHI}"}
+{"row_index": 39, "answer": ["B", "C", "D", "E", "G", "H", "I", "J"], "output": "\\boxed{ABCDGHJ}"}
+{"row_index": 40, "answer": ["A", "B", "C", "E", "H"], "output": "\\boxed{ABCEH}"}
+{"row_index": 41, "answer": ["G", "H"], "output": "\\boxed{BGH}"}
+{"row_index": 42, "answer": ["A", "B", "D", "E", "I", "J"], "output": "\\boxed{ABDEIJ}"}
+{"row_index": 43, "answer": ["A", "F"], "output": "\\boxed{AEFI}"}
+{"row_index": 44, "answer": ["A", "G"], "output": "\\boxed{ABDGHI}"}
+{"row_index": 45, "answer": ["A", "C", "F", "H", "J"], "output": "\\boxed{ADFHJ}"}
+{"row_index": 46, "answer": ["A", "H"], "output": "\\boxed{A}"}
+{"row_index": 47, "answer": ["A", "B", "H", "J"], "output": "\\boxed{A}"}
+{"row_index": 48, "answer": ["A", "J"], "output": "\\boxed{A}"}
+{"row_index": 49, "answer": ["A", "C", "I"], "output": "\\boxed{ABCDHIJ}"}
+{"row_index": 50, "answer": ["A", "C", "F", "H", "I", "J"], "output": "\\boxed{ACFHIJ}"}
+{"row_index": 51, "answer": ["C", "G"], "output": "\\boxed{BCFGHIJ}"}
+{"row_index": 52, "answer": ["A", "E", "F", "G"], "output": "\\boxed{AFG}"}
+{"row_index": 53, "answer": ["A", "D", "F", "H", "J"], "output": "\\boxed{ADFHJ}"}
+{"row_index": 54, "answer": ["C", "E", "J"], "output": "\\boxed{CEI}"}
+{"row_index": 55, "answer": ["A", "F", "G"], "output": "\\boxed{AFG}"}
+{"row_index": 56, "answer": ["A", "F", "I", "J"], "output": "\\boxed{AFIJ}"}
+{"row_index": 57, "answer": ["H", "I"], "output": "\\boxed{HI}"}
+{"row_index": 58, "answer": ["C", "D"], "output": "\\boxed{CD}"}
+{"row_index": 59, "answer": ["A", "B", "C", "D", "G", "I", "J"], "output": "\\boxed{ABCDGIJ}"}
+{"row_index": 60, "answer": ["B", "C", "J"], "output": "\\boxed{BCGJ}"}
+{"row_index": 61, "answer": ["A", "B", "C", "D", "G", "H", "I", "J"], "output": "\\boxed{ABCDFGHIJ}"}
+{"row_index": 62, "answer": ["C", "F", "G"], "output": "\\boxed{BCF}"}
+{"row_index": 63, "answer": ["A", "B"], "output": "\\boxed{AB}"}
+{"row_index": 64, "answer": ["B", "E", "F", "J"], "output": "\\boxed{ABEF}"}
+{"row_index": 65, "answer": ["E", "F"], "output": "\\boxed{EF}"}
+{"row_index": 66, "answer": ["A", "C", "D", "E", "J"], "output": "\\boxed{ACDEJ}"}
+{"row_index": 67, "answer": ["D", "F"], "output": "\\boxed{ACDFGIJ}"}
+{"row_index": 68, "answer": ["A", "D", "E", "F", "G", "H", "J"], "output": "\\boxed{ADEFGHJ}"}
+{"row_index": 69, "answer": ["E", "G", "H"], "output": "\\boxed{EGH}"}
+{"row_index": 70, "answer": ["D", "I"], "output": "\\boxed{ABCDHI}"}
+{"row_index": 71, "answer": ["B", "C", "G"], "output": "\\boxed{ABCFGHI}"}
+{"row_index": 72, "answer": ["C", "F", "I"], "output": "\\boxed{ACFHI}"}
+{"row_index": 73, "answer": ["F", "G"], "output": "\\boxed{FG}"}
+{"row_index": 74, "answer": ["B", "C", "D", "E", "F"], "output": "\\boxed{BCDEFGHJ}"}
+{"row_index": 75, "answer": ["A", "F", "H"], "output": "\\boxed{AEFGHIJ}"}
+{"row_index": 76, "answer": ["A", "B", "D", "G", "H"], "output": "\\boxed{ABDGH}"}
+{"row_index": 77, "answer": ["G", "I"], "output": "\\boxed{AFGI}"}
+{"row_index": 78, "answer": ["G", "H"], "output": "\\boxed{GH}"}
+{"row_index": 79, "answer": ["B", "C", "D"], "output": "\\boxed{BCDGH}"}
+{"row_index": 80, "answer": ["C", "E", "G"], "output": "\\boxed{CEGH}"}
+{"row_index": 81, "answer": ["A", "B", "D", "I"], "output": "\\boxed{ABDEI}"}
+{"row_index": 82, "answer": ["C", "F"], "output": "\\boxed{CF}"}
+{"row_index": 83, "answer": ["C", "E", "F", "G", "J"], "output": "\\boxed{CEFGJ}"}
+{"row_index": 84, "answer": ["A", "D", "F"], "output": "\\boxed{ADEFG}"}
+{"row_index": 85, "answer": ["A", "C", "D", "E", "G"], "output": "\\boxed{ACDE}"}
+{"row_index": 86, "answer": ["E", "G"], "output": "\\boxed{EG}"}
+{"row_index": 87, "answer": ["E", "J"], "output": "\\boxed{BEHJ}"}
+{"row_index": 88, "answer": ["A", "B", "E", "F", "H", "I"], "output": "\\boxed{A}"}
+{"row_index": 89, "answer": ["B", "F", "G"], "output": "\\boxed{BCDFGH}"}
+{"row_index": 90, "answer": ["E", "G", "I"], "output": "\\boxed{GI}"}
+{"row_index": 91, "answer": ["B", "C", "J"], "output": "\\boxed{BCJ}"}
+{"row_index": 92, "answer": ["D", "E", "H", "J"], "output": "\\boxed{DEHJ}"}
+{"row_index": 93, "answer": ["B", "H", "J"], "output": "\\boxed{BCGHJ}"}
+{"row_index": 94, "answer": ["B", "I"], "output": "\\boxed{BI}"}
+{"row_index": 95, "answer": ["A", "B", "C", "D", "J"], "output": "\\boxed{ABCDFJ}"}
+{"row_index": 96, "answer": ["A", "C", "G"], "output": "\\boxed{ACDG}"}
+{"row_index": 97, "answer": ["B", "H"], "output": "\\boxed{BH}"}
+{"row_index": 98, "answer": ["B", "C", "E"], "output": "\\boxed{ABCE}"}
+{"row_index": 99, "answer": ["A", "B", "F", "G", "H"], "output": "\\boxed{ABFGH}"}
+{"row_index": 100, "answer": ["C", "D", "E"], "output": "\\boxed{CDE}"}
+{"row_index": 101, "answer": ["B", "C", "E"], "output": "\\boxed{BCEHI}"}
+{"row_index": 102, "answer": ["B", "D", "E", "F", "H", "J"], "output": "\\boxed{BDEFHJ}"}
+{"row_index": 103, "answer": ["E", "F", "G"], "output": "\\boxed{CEFG}"}
+{"row_index": 104, "answer": ["C", "J"], "output": "\\boxed{ABJ}"}
+{"row_index": 105, "answer": ["A", "B", "D", "E", "G", "I"], "output": "\\boxed{ADEFGI}"}
+{"row_index": 106, "answer": ["B", "D", "F", "H", "I", "J"], "output": "\\boxed{BDFGHIJ}"}
+{"row_index": 107, "answer": ["B", "E", "F"], "output": "\\boxed{ACEFHI}"}
+{"row_index": 108, "answer": ["A", "J"], "output": "\\boxed{AJ}"}
+{"row_index": 109, "answer": ["A", "B", "D"], "output": "\\boxed{ABD}"}
+{"row_index": 110, "answer": ["C", "G", "I"], "output": "\\boxed{CGI}"}
+{"row_index": 111, "answer": ["B", "D", "H"], "output": "\\boxed{BHIJ}"}
+{"row_index": 112, "answer": ["A", "E", "I", "J"], "output": "\\boxed{AEIJ}"}
+{"row_index": 113, "answer": ["C", "D", "J"], "output": "\\boxed{CDJ}"}
+{"row_index": 114, "answer": ["C", "E", "G", "H", "I", "J"], "output": "\\boxed{CEGHIJ}"}
+{"row_index": 115, "answer": ["A", "B"], "output": "\\boxed{AB}"}
+{"row_index": 116, "answer": ["B", "I", "J"], "output": "\\boxed{BGIJ}"}
+{"row_index": 117, "answer": ["A", "B"], "output": "\\boxed{AB}"}
+{"row_index": 118, "answer": ["A", "B", "E", "G", "H", "J"], "output": "\\boxed{ABEGHJ}"}
+{"row_index": 119, "answer": ["A", "F", "J"], "output": "\\boxed{AFJ}"}
+{"row_index": 120, "answer": ["A", "D", "F", "G", "H", "I"], "output": "\\boxed{ADEFGHI}"}
+{"row_index": 121, "answer": ["D", "E"], "output": "\\boxed{DE}"}
+{"row_index": 122, "answer": ["C", "D"], "output": "\\boxed{ACD}"}
+{"row_index": 123, "answer": ["D", "E"], "output": "\\boxed{BDE}"}
+{"row_index": 124, "answer": ["A", "F", "H", "I"], "output": "\\boxed{ACDFI}"}
+{"row_index": 125, "answer": ["C", "D"], "output": "\\boxed{BCDH}"}
+{"row_index": 126, "answer": ["C", "D", "E", "F", "G", "H"], "output": "\\boxed{CDEFGH}"}
+{"row_index": 127, "answer": ["A", "B", "F"], "output": "\\boxed{ABCEI}"}
+{"row_index": 128, "answer": ["A", "D", "G"], "output": "\\boxed{ACDGI}"}
+{"row_index": 129, "answer": ["B", "D", "G", "J"], "output": "\\boxed{BDGJ}"}
+{"row_index": 130, "answer": ["A", "C", "D", "E", "G"], "output": "\\boxed{ACDEG}"}
+{"row_index": 131, "answer": ["D", "J"], "output": "\\boxed{DJ}"}
+{"row_index": 132, "answer": ["A", "D", "E", "F", "G", "H", "I"], "output": "\\boxed{ADEFGHI}"}
+{"row_index": 133, "answer": ["A", "C", "E", "H"], "output": "\\boxed{ACE}"}
+{"row_index": 134, "answer": ["B", "G"], "output": "\\boxed{ACDGIJ}"}
+{"row_index": 135, "answer": ["E", "F", "H"], "output": "\\boxed{ACDEFI}"}
+{"row_index": 136, "answer": ["H", "J"], "output": "\\boxed{CHJ}"}
+{"row_index": 137, "answer": ["A", "B", "E", "F", "G", "H"], "output": "\\boxed{ABEFGH}"}
+{"row_index": 138, "answer": ["A", "C", "E", "G", "I", "J"], "output": "\\boxed{ACEIJ}"}
+{"row_index": 139, "answer": ["G", "I"], "output": "\\boxed{BEFGIJ}"}
+{"row_index": 140, "answer": ["B", "C", "D"], "output": "\\boxed{BDE}"}
+{"row_index": 141, "answer": ["C", "E", "F", "J"], "output": "\\boxed{CEF}"}
+{"row_index": 142, "answer": ["C", "E", "G"], "output": "\\boxed{ACEFGHIJ}"}
+{"row_index": 143, "answer": ["B", "H", "I"], "output": "\\boxed{BDHI}"}
+{"row_index": 144, "answer": ["C", "G"], "output": "\\boxed{CEG}"}
+{"row_index": 145, "answer": ["A", "B", "E", "F", "G", "J"], "output": "\\boxed{BCEFGJ}"}
+{"row_index": 146, "answer": ["A", "B", "E", "G", "H", "J"], "output": "\\boxed{ABEGHJ}"}
+{"row_index": 147, "answer": ["E", "G", "H", "I"], "output": "\\boxed{BCEHI}"}
+{"row_index": 148, "answer": ["A", "B", "C", "E", "F", "H", "I", "J"], "output": "\\boxed{A}"}
+{"row_index": 149, "answer": ["B", "E", "G"], "output": "\\boxed{BEG}"}
+{"row_index": 150, "answer": ["B", "C", "I"], "output": "\\boxed{BCEI}"}
+{"row_index": 151, "answer": ["B", "C", "D", "G", "J"], "output": "\\boxed{BCDGJ}"}
+{"row_index": 152, "answer": ["A", "F", "G"], "output": "\\boxed{ADEFG}"}
+{"row_index": 153, "answer": ["E", "F", "I"], "output": "\\boxed{BDEFIJ}"}
+{"row_index": 154, "answer": ["A", "B", "D", "E", "F", "G", "I", "J"], "output": "\\boxed{ABCDEFGHIJ}"}
+{"row_index": 155, "answer": ["A", "B", "D", "F", "G", "H", "J"], "output": "\\boxed{A}"}
+{"row_index": 156, "answer": ["B", "C", "F", "G", "H", "J"], "output": "\\boxed{BCFGHJ}"}
+{"row_index": 157, "answer": ["B", "F", "H", "J"], "output": "\\boxed{BFHJ}"}
+{"row_index": 158, "answer": ["E", "G"], "output": "\\boxed{EG}"}
+{"row_index": 159, "answer": ["G", "H", "J"], "output": "\\boxed{AGHJ}"}
+{"row_index": 160, "answer": ["F", "H"], "output": "\\boxed{FH}"}
+{"row_index": 161, "answer": ["C", "D", "G", "H", "I", "J"], "output": "\\boxed{CDFGHIJ}"}
+{"row_index": 162, "answer": ["C", "D", "E", "I", "J"], "output": "\\boxed{ACDEI}"}
+{"row_index": 163, "answer": ["B", "E"], "output": "\\boxed{BDEGJ}"}
+{"row_index": 164, "answer": ["A", "D", "G", "I"], "output": "\\boxed{DGHI}"}
+{"row_index": 165, "answer": ["A", "B", "C", "D", "H"], "output": "\\boxed{ABCDHJ}"}
+{"row_index": 166, "answer": ["F", "G", "H"], "output": "\\boxed{F}"}
+{"row_index": 167, "answer": ["E", "G"], "output": "\\boxed{DEG}"}
+{"row_index": 168, "answer": ["B", "E", "I"], "output": "\\boxed{BDEI}"}
+{"row_index": 169, "answer": ["A", "C", "D", "E", "F", "G", "H", "I"], "output": "\\boxed{ACDEFGHI}"}
+{"row_index": 170, "answer": ["C", "F", "I", "J"], "output": "\\boxed{CFIJ}"}
+{"row_index": 171, "answer": ["F", "G"], "output": "\\boxed{CDEFGI}"}
+{"row_index": 172, "answer": ["D", "F", "G", "J"], "output": "\\boxed{DFGJ}"}
+{"row_index": 173, "answer": ["D", "E"], "output": "\\boxed{DE}"}
+{"row_index": 174, "answer": ["A", "E", "G", "I", "J"], "output": "\\boxed{AEGIJ}"}
+{"row_index": 175, "answer": ["C", "D"], "output": "\\boxed{BCDEHJ}"}
+{"row_index": 176, "answer": ["A", "B", "C", "F", "G", "H", "I"], "output": "\\boxed{ABCFGHI}"}
+{"row_index": 177, "answer": ["A", "C", "F", "I"], "output": "\\boxed{ABCFI}"}
+{"row_index": 178, "answer": ["B", "H", "J"], "output": "\\boxed{BHJ}"}
+{"row_index": 179, "answer": ["B", "C", "D", "G", "H", "I", "J"], "output": "\\boxed{BCDFHIJ}"}
+{"row_index": 180, "answer": ["A", "F", "G", "I", "J"], "output": "\\boxed{AFGIJ}"}
+{"row_index": 181, "answer": ["C", "F", "G", "H"], "output": "\\boxed{CDFGH}"}
+{"row_index": 182, "answer": ["A", "B", "E", "I", "J"], "output": "\\boxed{ABCEIJ}"}
+{"row_index": 183, "answer": ["C", "D", "F", "G", "H", "I", "J"], "output": "\\boxed{CDFGHIJ}"}
+{"row_index": 184, "answer": ["C", "D", "G", "H", "I"], "output": "\\boxed{CDGHI}"}
+{"row_index": 185, "answer": ["B", "C"], "output": "\\boxed{BCD}"}
+{"row_index": 186, "answer": ["D", "E", "G"], "output": "\\boxed{DEGI}"}
+{"row_index": 187, "answer": ["A", "C", "D", "G", "I", "J"], "output": "\\boxed{ADFGIJ}"}
+{"row_index": 188, "answer": ["D", "E", "H", "I", "J"], "output": "\\boxed{DEFHIJ}"}
+{"row_index": 189, "answer": ["A", "B", "C", "H"], "output": "\\boxed{ABCH}"}
+{"row_index": 190, "answer": ["B", "E"], "output": "\\boxed{BCEGI}"}
+{"row_index": 191, "answer": ["B", "E", "H", "I", "J"], "output": "\\boxed{BCEHIJ}"}
+{"row_index": 192, "answer": ["C", "E"], "output": "\\boxed{ACEFGH}"}
+{"row_index": 193, "answer": ["A", "C", "E", "F", "H", "J"], "output": "\\boxed{ACEFHIJ}"}
+{"row_index": 194, "answer": ["A", "C", "D", "E", "F", "G", "J"], "output": "\\boxed{ACDEFGJ}"}
+{"row_index": 195, "answer": ["A", "C"], "output": "\\boxed{ABCDGJ}"}
+{"row_index": 196, "answer": ["B", "E", "F", "G", "H", "J"], "output": "\\boxed{BEFGHJ}"}
+{"row_index": 197, "answer": ["D", "F"], "output": "\\boxed{BDFHJ}"}
+{"row_index": 198, "answer": ["C", "I"], "output": "\\boxed{CI}"}
+{"row_index": 199, "answer": ["E", "I", "J"], "output": "\\boxed{DEFGIJ}"}
+{"row_index": 200, "answer": ["A", "B", "C", "D", "F", "G", "H", "J"], "output": "\\boxed{BCDFGHJ}"}
+{"row_index": 201, "answer": ["B", "E", "G", "H", "I"], "output": "\\boxed{BEGHI}"}
+{"row_index": 202, "answer": ["B", "E", "F", "I", "J"], "output": "\\boxed{ABCEFHIJ}"}
+{"row_index": 203, "answer": ["G", "J"], "output": "\\boxed{GJ}"}
+{"row_index": 204, "answer": ["B", "F", "H", "J"], "output": "\\boxed{BFHJ}"}
+{"row_index": 205, "answer": ["B", "E"], "output": "\\boxed{BE}"}
+{"row_index": 206, "answer": ["A", "C", "D", "E", "F", "J"], "output": "\\boxed{ACDEFJ}"}
+{"row_index": 207, "answer": ["H", "I"], "output": "\\boxed{DHI}"}
+{"row_index": 208, "answer": ["A", "F", "H", "J"], "output": "\\boxed{A}"}
+{"row_index": 209, "answer": ["A", "E"], "output": "\\boxed{AE}"}
+{"row_index": 210, "answer": ["F", "H", "I", "J"], "output": "\\boxed{AFHIJ}"}
+{"row_index": 211, "answer": ["A", "H", "J"], "output": "\\boxed{AEGHIJ}"}
+{"row_index": 212, "answer": ["C", "D"], "output": "\\boxed{BCDIJ}"}
+{"row_index": 213, "answer": ["A", "D", "H"], "output": "\\boxed{ADH}"}
+{"row_index": 214, "answer": ["A", "E", "F", "H", "I"], "output": "\\boxed{ACDEFHI}"}
+{"row_index": 215, "answer": ["G", "I", "J"], "output": "\\boxed{GIJ}"}
+{"row_index": 216, "answer": ["E", "F", "G"], "output": "\\boxed{ADEFGHI}"}
+{"row_index": 217, "answer": ["A", "B", "C", "E", "G", "I", "J"], "output": "\\boxed{ACEGIJ}"}
+{"row_index": 218, "answer": ["A", "B", "C", "F", "G", "J"], "output": "\\boxed{ABCFGJ}"}
+{"row_index": 219, "answer": ["B", "C", "D", "I"], "output": "\\boxed{BCDGIJ}"}
+{"row_index": 220, "answer": ["A", "F"], "output": "\\boxed{ABDEF}"}
+{"row_index": 221, "answer": ["H", "J"], "output": "\\boxed{J}"}
+{"row_index": 222, "answer": ["C", "F"], "output": "\\boxed{CEFG}"}
+{"row_index": 223, "answer": ["A", "C", "D", "E", "I", "J"], "output": "\\boxed{A}"}
+{"row_index": 224, "answer": ["C", "D", "E", "H"], "output": "\\boxed{CDEH}"}
+{"row_index": 225, "answer": ["D", "J"], "output": "\\boxed{CEJ}"}
+{"row_index": 226, "answer": ["B", "J"], "output": "\\boxed{BDJ}"}
+{"row_index": 227, "answer": ["A", "B", "C", "E", "I", "J"], "output": "\\boxed{AEIJ}"}
+{"row_index": 228, "answer": ["E", "J"], "output": "\\boxed{EIJ}"}
+{"row_index": 229, "answer": ["F", "G", "I"], "output": "\\boxed{FGI}"}
+{"row_index": 230, "answer": ["E", "F"], "output": "\\boxed{EF}"}
+{"row_index": 231, "answer": ["B", "C", "D", "F", "G", "H", "I"], "output": "\\boxed{CDFGHI}"}
+{"row_index": 232, "answer": ["A", "D"], "output": "\\boxed{ADEFHJ}"}
+{"row_index": 233, "answer": ["C", "D", "E", "I"], "output": "\\boxed{CDIJ}"}
+{"row_index": 234, "answer": ["F", "G"], "output": "\\boxed{FG}"}
+{"row_index": 235, "answer": ["A", "B", "G", "H", "I", "J"], "output": "\\boxed{ABCGHIJ}"}
+{"row_index": 236, "answer": ["A", "B", "H", "I"], "output": "\\boxed{ABHI}"}
+{"row_index": 237, "answer": ["D", "H"], "output": "\\boxed{DH}"}
+{"row_index": 238, "answer": ["B", "C", "D", "F", "I", "J"], "output": "\\boxed{BCDEFIJ}"}
+{"row_index": 239, "answer": ["H", "J"], "output": "\\boxed{ACDGHIJ}"}
+{"row_index": 240, "answer": ["A", "F", "G", "I", "J"], "output": "\\boxed{AFGIJ}"}
+{"row_index": 241, "answer": ["A", "B", "E", "F", "G", "H", "J"], "output": "\\boxed{ABDEFGJ}"}
+{"row_index": 242, "answer": ["B", "C"], "output": "\\boxed{BC}"}
+{"row_index": 243, "answer": ["C", "F", "H"], "output": "\\boxed{CFH}"}
+{"row_index": 244, "answer": ["E", "F"], "output": "\\boxed{EF}"}
+{"row_index": 245, "answer": ["D", "E", "F", "H", "J"], "output": "\\boxed{DEFHJ}"}
+{"row_index": 246, "answer": ["A", "B", "C", "E", "F", "G", "H", "J"], "output": "\\boxed{ACEFGHJ}"}
+{"row_index": 247, "answer": ["E", "H"], "output": "\\boxed{DEHI}"}
+{"row_index": 248, "answer": ["A", "C", "D", "E", "I"], "output": "\\boxed{ACDEI}"}
+{"row_index": 249, "answer": ["D", "E", "H", "I"], "output": "\\boxed{DFHI}"}
+{"row_index": 250, "answer": ["B", "I", "J"], "output": "\\boxed{BDEHIJ}"}
+{"row_index": 251, "answer": ["G", "I", "J"], "output": "\\boxed{GIJ}"}
+{"row_index": 252, "answer": ["B", "I", "J"], "output": "\\boxed{BEIJ}"}
+{"row_index": 253, "answer": ["D", "F", "I"], "output": "\\boxed{DFI}"}
+{"row_index": 254, "answer": ["B", "F", "G"], "output": "\\boxed{BDFG}"}
+{"row_index": 255, "answer": ["D", "E"], "output": "\\boxed{DE}"}
+{"row_index": 256, "answer": ["B", "H"], "output": "\\boxed{BH}"}
+{"row_index": 257, "answer": ["F", "H", "I"], "output": "\\boxed{ADFHI}"}
+{"row_index": 258, "answer": ["G", "H", "I"], "output": "\\boxed{FGI}"}
+{"row_index": 259, "answer": ["B", "D", "E"], "output": "\\boxed{ABCDEH}"}
+{"row_index": 260, "answer": ["C", "F", "I"], "output": "\\boxed{CFI}"}
+{"row_index": 261, "answer": ["B", "D", "E", "G", "I", "J"], "output": "\\boxed{BDEGIJ}"}
+{"row_index": 262, "answer": ["C", "E", "H"], "output": "\\boxed{BCEFHJ}"}
+{"row_index": 263, "answer": ["C", "D"], "output": "\\boxed{BCDE}"}
+{"row_index": 264, "answer": ["D", "F", "H", "I"], "output": "\\boxed{DFHI}"}
+{"row_index": 265, "answer": ["B", "G", "J"], "output": "\\boxed{ABCDEGJ}"}
+{"row_index": 266, "answer": ["A", "F"], "output": "\\boxed{AEFI}"}
+{"row_index": 267, "answer": ["G", "H"], "output": "\\boxed{GH}"}
+{"row_index": 268, "answer": ["C", "F", "J"], "output": "\\boxed{CDIJ}"}
+{"row_index": 269, "answer": ["E", "H", "I"], "output": "\\boxed{EHI}"}
+{"row_index": 270, "answer": ["A", "B", "D", "E", "G"], "output": "\\boxed{ABDEG}"}
+{"row_index": 271, "answer": ["F", "I"], "output": "\\boxed{CFHI}"}
+{"row_index": 272, "answer": ["A", "B", "E", "H", "J"], "output": "\\boxed{ABDEHJ}"}
+{"row_index": 273, "answer": ["E", "F"], "output": "\\boxed{EF}"}
+{"row_index": 274, "answer": ["A", "H", "J"], "output": "\\boxed{ABEGHJ}"}
+{"row_index": 275, "answer": ["A", "E", "F", "G", "H", "J"], "output": "\\boxed{ABEFGHJ}"}
+{"row_index": 276, "answer": ["H", "J"], "output": "\\boxed{DHJ}"}
+{"row_index": 277, "answer": ["D", "G"], "output": "\\boxed{BDEG}"}
+{"row_index": 278, "answer": ["A", "F", "J"], "output": "\\boxed{AF}"}
+{"row_index": 279, "answer": ["C", "D"], "output": "\\boxed{CDGHIJ}"}
+{"row_index": 280, "answer": ["A", "I"], "output": "\\boxed{ABEGHIJ}"}
+{"row_index": 281, "answer": ["B", "C", "H", "I", "J"], "output": "\\boxed{BCHIJ}"}
+{"row_index": 282, "answer": ["C", "D", "H", "J"], "output": "\\boxed{CDHJ}"}
+{"row_index": 283, "answer": ["G", "I", "J"], "output": "\\boxed{GIJ}"}
+{"row_index": 284, "answer": ["A", "B", "C", "D", "E", "G", "H"], "output": "\\boxed{ABDEGHI}"}
+{"row_index": 285, "answer": ["B", "C", "I"], "output": "\\boxed{BCDEI}"}
+{"row_index": 286, "answer": ["A", "G"], "output": "\\boxed{A}"}
+{"row_index": 287, "answer": ["D", "H", "J"], "output": "\\boxed{DHJ}"}
+{"row_index": 288, "answer": ["B", "D"], "output": "\\boxed{BD}"}
+{"row_index": 289, "answer": ["A", "B", "I"], "output": "\\boxed{A}"}
+{"row_index": 290, "answer": ["A", "I"], "output": "\\boxed{AEI}"}
+{"row_index": 291, "answer": ["A", "B", "C", "D", "F", "G", "H", "I", "J"], "output": "\\boxed{ABCDFG}"}
+{"row_index": 292, "answer": ["A", "B", "D", "G", "I", "J"], "output": "\\boxed{ABDGHIJ}"}
+{"row_index": 293, "answer": ["C", "D", "E", "G", "H", "J"], "output": "\\boxed{CDEGHJ}"}
+{"row_index": 294, "answer": ["A", "C", "D", "E", "I", "J"], "output": "\\boxed{ACDEIJ}"}
+{"row_index": 295, "answer": ["E", "I"], "output": "\\boxed{EI}"}
+{"row_index": 296, "answer": ["A", "C", "D", "F"], "output": "\\boxed{ADEF}"}
+{"row_index": 297, "answer": ["D", "E", "G", "I"], "output": "\\boxed{CDEG}"}
+{"row_index": 298, "answer": ["A", "D", "E"], "output": "\\boxed{ADEI}"}
+{"row_index": 299, "answer": ["B", "I", "J"], "output": "\\boxed{ABCFGHIJ}"}
+{"row_index": 300, "answer": ["A", "B", "C", "D", "F", "G"], "output": "\\boxed{ABCDFG}"}
+{"row_index": 301, "answer": ["F", "G", "J"], "output": "\\boxed{FGIJ}"}
+{"row_index": 302, "answer": ["B", "C", "G"], "output": "\\boxed{ABCEGIJ}"}
+{"row_index": 303, "answer": ["A", "B", "F"], "output": "\\boxed{ABDFHI}"}
+{"row_index": 304, "answer": ["A", "J"], "output": "\\boxed{ADHJ}"}
+{"row_index": 305, "answer": ["D", "I"], "output": "\\boxed{DI}"}
+{"row_index": 306, "answer": ["F", "G", "H"], "output": "\\boxed{A}"}
+{"row_index": 307, "answer": ["A", "I"], "output": "\\boxed{AI}"}
+{"row_index": 308, "answer": ["D", "F"], "output": "\\boxed{ADI}"}
+{"row_index": 309, "answer": ["E", "G"], "output": "\\boxed{BCDEFGHJ}"}
+{"row_index": 310, "answer": ["A", "F"], "output": "\\boxed{ACFGI}"}
+{"row_index": 311, "answer": ["D", "F", "H", "J"], "output": "\\boxed{DFHJ}"}
+{"row_index": 312, "answer": ["A", "B", "C", "E", "F", "G", "H", "I"], "output": "\\boxed{ABCEFGHI}"}
+{"row_index": 313, "answer": ["B", "D", "E", "F", "I"], "output": "\\boxed{BDEFI}"}
+{"row_index": 314, "answer": ["A", "G"], "output": "\\boxed{ADGHI}"}
+{"row_index": 315, "answer": ["D", "E", "H", "I", "J"], "output": "\\boxed{CDEHIJ}"}
+{"row_index": 316, "answer": ["A", "C", "D", "F", "H", "I"], "output": "\\boxed{ACDFHI}"}
+{"row_index": 317, "answer": ["B", "D", "G", "H", "I"], "output": "\\boxed{BDEGHI}"}
+{"row_index": 318, "answer": ["D", "H"], "output": "\\boxed{EHIJ}"}
+{"row_index": 319, "answer": ["A", "H", "J"], "output": "\\boxed{ABDEGHIJ}"}
+{"row_index": 320, "answer": ["A", "B", "D", "E", "G", "H"], "output": "\\boxed{ABDEGH}"}
+{"row_index": 321, "answer": ["D", "E", "H", "I"], "output": "\\boxed{ADEHI}"}
+{"row_index": 322, "answer": ["C", "D"], "output": "\\boxed{CDGJ}"}
+{"row_index": 323, "answer": ["H", "I"], "output": "\\boxed{HI}"}
+{"row_index": 324, "answer": ["A", "B", "C", "D", "E", "F", "H"], "output": "\\boxed{ABCDEFHI}"}
+{"row_index": 325, "answer": ["B", "C", "E", "F"], "output": "\\boxed{BCEF}"}
+{"row_index": 326, "answer": ["G", "H"], "output": "\\boxed{GH}"}
+{"row_index": 327, "answer": ["B", "D"], "output": "\\boxed{BDI}"}
+{"row_index": 328, "answer": ["C", "F", "I", "J"], "output": "\\boxed{CFI}"}
+{"row_index": 329, "answer": ["A", "I"], "output": "\\boxed{AI}"}
+{"row_index": 330, "answer": ["A", "C", "D", "E", "H", "I"], "output": "\\boxed{ACDHI}"}
+{"row_index": 331, "answer": ["A", "F", "J"], "output": "\\boxed{AEFHIJ}"}
+{"row_index": 332, "answer": ["A", "B", "J"], "output": "\\boxed{ABCGHIJ}"}
+{"row_index": 333, "answer": ["D", "G", "I"], "output": "\\boxed{ACDGI}"}
+{"row_index": 334, "answer": ["B", "H"], "output": "\\boxed{BH}"}
+{"row_index": 335, "answer": ["C", "D", "G", "I", "J"], "output": "\\boxed{CDGIJ}"}
+{"row_index": 336, "answer": ["A", "C", "D", "F", "G", "H", "I", "J"], "output": "\\boxed{ACDFGHIJ}"}
+{"row_index": 337, "answer": ["A", "B", "D", "I"], "output": "\\boxed{ABDFHI}"}
+{"row_index": 338, "answer": ["C", "D", "E", "G"], "output": "\\boxed{CDEG}"}
+{"row_index": 339, "answer": ["B", "C"], "output": "\\boxed{BF}"}
+{"row_index": 340, "answer": ["A", "B", "C", "G", "H", "J"], "output": "\\boxed{ABCHJ}"}
+{"row_index": 341, "answer": ["C", "G", "I"], "output": "\\boxed{ACDFGIJ}"}
+{"row_index": 342, "answer": ["B", "C", "I"], "output": "\\boxed{BCFHIJ}"}
+{"row_index": 343, "answer": ["E", "F", "G", "I"], "output": "\\boxed{EGI}"}
+{"row_index": 344, "answer": ["A", "D"], "output": "\\boxed{ADEF}"}
+{"row_index": 345, "answer": ["E", "I"], "output": "\\boxed{DEGHIJ}"}
+{"row_index": 346, "answer": ["A", "D", "F", "J"], "output": "\\boxed{ADFJ}"}
+{"row_index": 347, "answer": ["A", "C", "F"], "output": "\\boxed{ACDFGI}"}
+{"row_index": 348, "answer": ["B", "D", "I"], "output": "\\boxed{BCDHI}"}
+{"row_index": 349, "answer": ["A", "F", "H"], "output": "\\boxed{ABFH}"}
+{"row_index": 350, "answer": ["A", "I"], "output": "\\boxed{ABCDEFGI}"}
+{"row_index": 351, "answer": ["I", "J"], "output": "\\boxed{IJ}"}
+{"row_index": 352, "answer": ["B", "D", "I", "J"], "output": "\\boxed{BDIJ}"}
+{"row_index": 353, "answer": ["C", "F"], "output": "\\boxed{CF}"}
+{"row_index": 354, "answer": ["B", "C", "F", "H"], "output": "\\boxed{BCFH}"}
+{"row_index": 355, "answer": ["F", "I"], "output": "\\boxed{AFI}"}
+{"row_index": 356, "answer": ["A", "F", "G", "J"], "output": "\\boxed{AFGJ}"}
+{"row_index": 357, "answer": ["A", "B", "C", "D", "E", "F", "G", "H", "J"], "output": "\\boxed{ACDEFGHJ}"}
+{"row_index": 358, "answer": ["G", "H"], "output": "\\boxed{GH}"}
+{"row_index": 359, "answer": ["C", "E", "H", "J"], "output": "\\boxed{EFHJ}"}
+{"row_index": 360, "answer": ["A", "J"], "output": "\\boxed{ADFGJ}"}
+{"row_index": 361, "answer": ["D", "G", "J"], "output": "\\boxed{ADFGIJ}"}
+{"row_index": 362, "answer": ["A", "D", "I"], "output": "\\boxed{ADFGHIJ}"}
+{"row_index": 363, "answer": ["A", "F", "I", "J"], "output": "\\boxed{AFIJ}"}
+{"row_index": 364, "answer": ["D", "I"], "output": "\\boxed{CDEFGI}"}
+{"row_index": 365, "answer": ["A", "H"], "output": "\\boxed{ACDEFGHIJ}"}
+{"row_index": 366, "answer": ["C", "G", "I", "J"], "output": "\\boxed{CGIJ}"}
+{"row_index": 367, "answer": ["A", "B", "C", "D", "G", "H", "J"], "output": "\\boxed{BCGHJ}"}
+{"row_index": 368, "answer": ["A", "D", "F"], "output": "\\boxed{CDFG}"}
+{"row_index": 369, "answer": ["E", "G", "H", "J"], "output": "\\boxed{EGHJ}"}
+{"row_index": 370, "answer": ["C", "D", "J"], "output": "\\boxed{CDJ}"}
+{"row_index": 371, "answer": ["F", "H"], "output": "\\boxed{GH}"}
+{"row_index": 372, "answer": ["A", "B", "C", "D", "E", "F", "H", "I", "J"], "output": "\\boxed{ACDEFHI}"}
+{"row_index": 373, "answer": ["F", "I"], "output": "\\boxed{CDFI}"}
+{"row_index": 374, "answer": ["C", "J"], "output": "\\boxed{CJ}"}
+{"row_index": 375, "answer": ["A", "D", "H"], "output": "\\boxed{ADEGHIJ}"}
+{"row_index": 376, "answer": ["E", "G"], "output": "\\boxed{EG}"}
+{"row_index": 377, "answer": ["A", "C", "G"], "output": "\\boxed{ACDFGHJ}"}
+{"row_index": 378, "answer": ["A", "C", "G", "I"], "output": "\\boxed{ACGI}"}
+{"row_index": 379, "answer": ["A", "D", "H"], "output": "\\boxed{ADEH}"}
+{"row_index": 380, "answer": ["I", "J"], "output": "\\boxed{IJ}"}
+{"row_index": 381, "answer": ["D", "I", "J"], "output": "\\boxed{ACDEGHIJ}"}
+{"row_index": 382, "answer": ["A", "I"], "output": "\\boxed{AEIJ}"}
+{"row_index": 383, "answer": ["A", "C", "E", "F", "G", "J"], "output": "\\boxed{ACEFGJ}"}
+{"row_index": 384, "answer": ["G", "I"], "output": "\\boxed{EGI}"}
+{"row_index": 385, "answer": ["E", "G", "I"], "output": "\\boxed{EGI}"}
+{"row_index": 386, "answer": ["C", "H", "J"], "output": "\\boxed{CHJ}"}
+{"row_index": 387, "answer": ["A", "J"], "output": "\\boxed{AGIJ}"}
+{"row_index": 388, "answer": ["A", "C", "D", "E", "F", "G"], "output": "\\boxed{ACDEFG}"}
+{"row_index": 389, "answer": ["B", "C", "E", "G", "I", "J"], "output": "\\boxed{BCEGIJ}"}
+{"row_index": 390, "answer": ["D", "I", "J"], "output": "\\boxed{BCDFGHI}"}
+{"row_index": 391, "answer": ["C", "E", "J"], "output": "\\boxed{A}"}
+{"row_index": 392, "answer": ["A", "B", "C", "D", "E", "F", "G", "I", "J"], "output": "\\boxed{ABDEFGIJ}"}
+{"row_index": 393, "answer": ["C", "D", "E", "G"], "output": "\\boxed{CDEGJ}"}
+{"row_index": 394, "answer": ["B", "H", "I", "J"], "output": "\\boxed{BHIJ}"}
+{"row_index": 395, "answer": ["B", "J"], "output": "\\boxed{BCGJ}"}
+{"row_index": 396, "answer": ["F", "H"], "output": "\\boxed{CFH}"}
+{"row_index": 397, "answer": ["H", "I", "J"], "output": "\\boxed{HIJ}"}
+{"row_index": 398, "answer": ["A", "B", "C", "H", "I", "J"], "output": "\\boxed{ABCHIJ}"}
+{"row_index": 399, "answer": ["B", "D", "E", "G", "H", "I"], "output": "\\boxed{BCDEGI}"}
+{"row_index": 400, "answer": ["E", "J"], "output": "\\boxed{EJ}"}
+{"row_index": 401, "answer": ["C", "F"], "output": "\\boxed{CFH}"}
+{"row_index": 402, "answer": ["G", "I"], "output": "\\boxed{GI}"}
+{"row_index": 403, "answer": ["C", "D", "I", "J"], "output": "\\boxed{CDIJ}"}
+{"row_index": 404, "answer": ["B", "C"], "output": "\\boxed{ABCFH}"}
+{"row_index": 405, "answer": ["D", "E", "J"], "output": "\\boxed{ABDE}"}
+{"row_index": 406, "answer": ["A", "B", "E", "G", "I"], "output": "\\boxed{ABDEGI}"}
+{"row_index": 407, "answer": ["D", "E", "F", "H", "J"], "output": "\\boxed{DEFHJ}"}
+{"row_index": 408, "answer": ["A", "D", "E", "G", "H", "I", "J"], "output": "\\boxed{ADEGHIJ}"}
+{"row_index": 409, "answer": ["B", "D", "E", "F", "G", "H", "J"], "output": "\\boxed{BDEFGHJ}"}
+{"row_index": 410, "answer": ["C", "E", "F"], "output": "\\boxed{BCEF}"}
+{"row_index": 411, "answer": ["B", "E", "F"], "output": "\\boxed{EF}"}
+{"row_index": 412, "answer": ["A", "C", "E", "F", "G", "I"], "output": "\\boxed{ACEFGI}"}
+{"row_index": 413, "answer": ["A", "C", "E", "G", "H", "I", "J"], "output": "\\boxed{ACEGHIJ}"}
+{"row_index": 414, "answer": ["A", "D", "F"], "output": "\\boxed{ADF}"}
+{"row_index": 415, "answer": ["B", "C"], "output": "\\boxed{BC}"}
+{"row_index": 416, "answer": ["C", "E"], "output": "\\boxed{CDE}"}
+{"row_index": 417, "answer": ["B", "D"], "output": "\\boxed{BDFIJ}"}
+{"row_index": 418, "answer": ["B", "F"], "output": "\\boxed{ACF}"}
+{"row_index": 419, "answer": ["D", "F", "G"], "output": "\\boxed{ADFGJ}"}
+{"row_index": 420, "answer": ["D", "E", "G", "H", "J"], "output": "\\boxed{BDEGHIJ}"}
+{"row_index": 421, "answer": ["A", "C"], "output": "\\boxed{AC}"}
+{"row_index": 422, "answer": ["G", "I"], "output": "\\boxed{CGI}"}
+{"row_index": 423, "answer": ["A", "E"], "output": "\\boxed{ABDEFIJ}"}
+{"row_index": 424, "answer": ["G", "J"], "output": "\\boxed{J}"}
+{"row_index": 425, "answer": ["B", "D", "E"], "output": "\\boxed{BDE}"}
+{"row_index": 426, "answer": ["B", "F", "J"], "output": "\\boxed{BDFHJ}"}
+{"row_index": 427, "answer": ["A", "B", "C", "E", "F", "H"], "output": "\\boxed{A}"}
+{"row_index": 428, "answer": ["C", "D", "H"], "output": "\\boxed{CDH}"}
+{"row_index": 429, "answer": ["F", "G", "I"], "output": "\\boxed{FGIJ}"}
+{"row_index": 430, "answer": ["C", "E"], "output": "\\boxed{CDEGIJ}"}
+{"row_index": 431, "answer": ["A", "C", "F"], "output": "\\boxed{ACDF}"}
+{"row_index": 432, "answer": ["E", "J"], "output": "\\boxed{ABCHJ}"}
+{"row_index": 433, "answer": ["F", "G", "H", "I"], "output": "\\boxed{CFGI}"}
+{"row_index": 434, "answer": ["F", "J"], "output": "\\boxed{ACFIJ}"}
+{"row_index": 435, "answer": ["A", "D", "F", "J"], "output": "\\boxed{ADFJ}"}
+{"row_index": 436, "answer": ["D", "F", "G", "H", "J"], "output": "\\boxed{DFGHJ}"}
+{"row_index": 437, "answer": ["I", "J"], "output": "\\boxed{IJ}"}
+{"row_index": 438, "answer": ["A", "B", "C", "D", "E", "G", "I", "J"], "output": "\\boxed{ACDEGIJ}"}
+{"row_index": 439, "answer": ["A", "G", "J"], "output": "\\boxed{AGHJ}"}
+{"row_index": 440, "answer": ["E", "I"], "output": "\\boxed{AEIJ}"}
+{"row_index": 441, "answer": ["E", "G"], "output": "\\boxed{E}"}
+{"row_index": 442, "answer": ["B", "C", "F"], "output": "\\boxed{CDF}"}
+{"row_index": 443, "answer": ["A", "E", "H"], "output": "\\boxed{AEHJ}"}
+{"row_index": 444, "answer": ["C", "D", "E", "F", "G"], "output": "\\boxed{CDEFG}"}
+{"row_index": 445, "answer": ["B", "G"], "output": "\\boxed{BEG}"}
+{"row_index": 446, "answer": ["B", "C", "E"], "output": "\\boxed{BCE}"}
+{"row_index": 447, "answer": ["B", "C", "F"], "output": "\\boxed{CEF}"}
+{"row_index": 448, "answer": ["B", "E"], "output": "\\boxed{ABDEFHJ}"}
+{"row_index": 449, "answer": ["B", "G", "I"], "output": "\\boxed{BGI}"}
+{"row_index": 450, "answer": ["E", "F", "J"], "output": "\\boxed{ABDEFHIJ}"}
+{"row_index": 451, "answer": ["B", "D", "E", "F", "J"], "output": "\\boxed{BDEFJ}"}
+{"row_index": 452, "answer": ["A", "D"], "output": "\\boxed{ADI}"}
+{"row_index": 453, "answer": ["A", "B", "C", "E", "G", "H", "I", "J"], "output": "\\boxed{ABCEGHIJ}"}
+{"row_index": 454, "answer": ["E", "F", "G"], "output": "\\boxed{EFGJ}"}
+{"row_index": 455, "answer": ["A", "C"], "output": "\\boxed{ACDEFI}"}
+{"row_index": 456, "answer": ["A", "B", "J"], "output": "\\boxed{ABJ}"}
+{"row_index": 457, "answer": ["D", "F", "G"], "output": "\\boxed{FGH}"}
+{"row_index": 458, "answer": ["A", "I"], "output": "\\boxed{ABCDHJ}"}
+{"row_index": 459, "answer": ["B", "C", "E", "I"], "output": "\\boxed{BCEGI}"}
+{"row_index": 460, "answer": ["D", "J"], "output": "\\boxed{DGIJ}"}
+{"row_index": 461, "answer": ["G", "I"], "output": "\\boxed{GI}"}
+{"row_index": 462, "answer": ["A", "C", "J"], "output": "\\boxed{ACJ}"}
+{"row_index": 463, "answer": ["E", "G"], "output": "\\boxed{BCDEG}"}
+{"row_index": 464, "answer": ["A", "C"], "output": "\\boxed{AC}"}
+{"row_index": 465, "answer": ["A", "B", "C", "D", "E", "G", "I", "J"], "output": "\\boxed{ABCDEGI}"}
+{"row_index": 466, "answer": ["C", "D", "E", "F", "G", "H"], "output": "\\boxed{CDEFGH}"}
+{"row_index": 467, "answer": ["A", "B", "H"], "output": "\\boxed{ABCDGH}"}
+{"row_index": 468, "answer": ["D", "F", "G", "H"], "output": "\\boxed{DFGH}"}
+{"row_index": 469, "answer": ["A", "B", "F", "H", "I"], "output": "\\boxed{ABEFHIJ}"}
+{"row_index": 470, "answer": ["A", "C", "E"], "output": "\\boxed{ACF}"}
+{"row_index": 471, "answer": ["C", "F"], "output": "\\boxed{ACF}"}
+{"row_index": 472, "answer": ["A", "B", "D", "F", "G", "I"], "output": "\\boxed{ABDGI}"}
+{"row_index": 473, "answer": ["A", "B", "C", "F", "I"], "output": "\\boxed{ABCFI}"}
+{"row_index": 474, "answer": ["A", "C", "D", "E", "F", "G", "I", "J"], "output": "\\boxed{ACDEGIJ}"}
+{"row_index": 475, "answer": ["F", "G", "H", "I"], "output": "\\boxed{FGHI}"}
+{"row_index": 476, "answer": ["A", "C", "H", "I", "J"], "output": "\\boxed{ABCGHIJ}"}
+{"row_index": 477, "answer": ["A", "C", "D", "E", "H", "J"], "output": "\\boxed{ACDEHJ}"}
+{"row_index": 478, "answer": ["B", "E", "H"], "output": "\\boxed{BEH}"}
+{"row_index": 479, "answer": ["A", "C", "H", "J"], "output": "\\boxed{ACEHJ}"}
+{"row_index": 480, "answer": ["E", "G"], "output": "\\boxed{EG}"}
+{"row_index": 481, "answer": ["A", "B", "D", "E", "G", "H"], "output": "\\boxed{ABDEGH}"}
+{"row_index": 482, "answer": ["E", "F"], "output": "\\boxed{EF}"}
+{"row_index": 483, "answer": ["B", "D"], "output": "\\boxed{BD}"}
+{"row_index": 484, "answer": ["E", "F"], "output": "\\boxed{EF}"}
+{"row_index": 485, "answer": ["D", "J"], "output": "\\boxed{DGIJ}"}
+{"row_index": 486, "answer": ["A", "B", "C", "F", "G", "I", "J"], "output": "\\boxed{ACEFGIJ}"}
+{"row_index": 487, "answer": ["F", "G"], "output": "\\boxed{FG}"}
+{"row_index": 488, "answer": ["E", "J"], "output": "\\boxed{BEIJ}"}
+{"row_index": 489, "answer": ["A", "C", "F", "G", "I"], "output": "\\boxed{ACFGI}"}
+{"row_index": 490, "answer": ["G", "H"], "output": "\\boxed{GH}"}
+{"row_index": 491, "answer": ["A", "B", "C", "G", "H", "I", "J"], "output": "\\boxed{ABCDHIJ}"}
+{"row_index": 492, "answer": ["H", "I"], "output": "\\boxed{EI}"}
+{"row_index": 493, "answer": ["D", "J"], "output": "\\boxed{DGJ}"}
+{"row_index": 494, "answer": ["B", "E"], "output": "\\boxed{ABDEFHJ}"}
+{"row_index": 495, "answer": ["A", "G"], "output": "\\boxed{ACDGI}"}
+{"row_index": 496, "answer": ["D", "J"], "output": "\\boxed{DJ}"}
+{"row_index": 497, "answer": ["D", "I"], "output": "\\boxed{DI}"}
+{"row_index": 498, "answer": ["C", "E"], "output": "\\boxed{CE}"}
+{"row_index": 499, "answer": ["B", "C", "H", "I"], "output": "\\boxed{BCHI}"}

@@ -1,324 +1,270 @@
+#!/usr/bin/env python3
+"""Evaluate one model's predictions for the elevator diagnosis benchmark.
+
+Prediction JSONL files contain the released task record plus an ``output``
+field. The model's final closed-set answer is parsed from ``\\boxed{...}``.
+"""
+
+from __future__ import annotations
+
+import argparse
 import json
 import re
-import argparse
 from pathlib import Path
-from typing import Dict, List, Optional, Set
+from typing import Dict, Iterable, List, Optional, Sequence, Set
 
-def prediction_files(prediction_dir: str) -> List[str]:
-    """Discover supported prediction files without relying on local absolute paths."""
-    root = Path(prediction_dir)
-    names = [
-        "alarm_judge.jsonl", "alarm_judge_v1.jsonl",
-        "single_choice.jsonl", "single_choice_v1.jsonl",
-        "multi_choice.jsonl", "multi_choice_v1.jsonl",
-        "fault_testset.jsonl", "fault_exclude.jsonl", "fault_reason.jsonl",
-    ]
-    return [str(root / name) for name in names if (root / name).is_file()]
 
-# ================== LaTeX ==================
+PREDICTION_CANDIDATES = {
+    "A": ("alarm_judge_v1.jsonl", "alarm_judge.jsonl"),
+    "B1": ("single_choice_v1.jsonl", "single_choice.jsonl"),
+    "B2": ("multi_choice_v1.jsonl", "multi_choice.jsonl"),
+    "C1": ("fault_testset.jsonl",),
+    "C2": ("fault_exclude.jsonl",),
+    "C3": ("fault_reason.jsonl",),
+}
+
 BOX_PATTERN = re.compile(r"\\?boxed\{((?:[^{}]|\{[^{}]*\})+)\}")
 TEXT_WRAPPER_PATTERN = re.compile(r"\\(?:text|textbf|mathrm|textrm)\{([^}]+)\}")
 
-def clean_latex_wrapper(s: str) -> str:
-    s = s.strip()
+
+def prediction_files(prediction_dir: Path) -> List[Path]:
+    """Select at most one prediction file for each task."""
+    paths = []
+    for names in PREDICTION_CANDIDATES.values():
+        match = next((prediction_dir / name for name in names if (prediction_dir / name).is_file()), None)
+        if match is not None:
+            paths.append(match)
+    return paths
+
+
+def load_jsonl(path: Path) -> List[dict]:
+    return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+
+
+def clean_latex_wrapper(value: str) -> str:
+    value = value.strip()
     while True:
-        m = TEXT_WRAPPER_PATTERN.fullmatch(s)
-        if not m:
-            break
-        s = m.group(1).strip()
-    return s
+        match = TEXT_WRAPPER_PATTERN.fullmatch(value)
+        if not match:
+            return value
+        value = match.group(1).strip()
+
 
 def extract_boxed_content(text: str) -> str:
-    m = BOX_PATTERN.search(text or "")
-    return clean_latex_wrapper(m.group(1)) if m else ""
+    match = BOX_PATTERN.search(text or "")
+    return clean_latex_wrapper(match.group(1)) if match else ""
 
-# ================== Choice ==================
-def normalize_choice_answer(ans_str: str) -> List[str]:
-    if not ans_str:
+
+def normalize_choice_answer(answer: str) -> List[str]:
+    """Return the unique A--Z choice labels found in a boxed answer."""
+    if not answer:
         return []
-    ans_str = ans_str.upper().strip()
-
-    m = re.match(r"^([A-Z])[\.\-\s:：].*", ans_str)
-    if m:
-        return [m.group(1)]
-
-    if re.fullmatch(r"[A-Z]", ans_str):
-        return [ans_str]
-
-    ans_str = ans_str.replace("\\,", ",").replace("\\", " ")
-    ans_str = ans_str.replace("，", ",").replace("、", ",")
-
-    if re.search(r"[,\s]", ans_str):
-        parts = re.split(r"[,\s]+", ans_str)
-        parts = [p for p in parts if re.fullmatch(r"[A-Z]", p)]
+    answer = answer.upper().strip()
+    match = re.match(r"^([A-Z])[.\-\s:\uff1a].*", answer)
+    if match:
+        return [match.group(1)]
+    if re.fullmatch(r"[A-Z]", answer):
+        return [answer]
+    answer = answer.replace("\\,", ",").replace("\\", " ")
+    answer = answer.replace("，", ",").replace("、", ",")
+    if re.search(r"[,\s]", answer):
+        parts = [part for part in re.split(r"[,\s]+", answer) if re.fullmatch(r"[A-Z]", part)]
     else:
-        parts = re.findall(r"[A-Z]", ans_str)
-
+        parts = re.findall(r"[A-Z]", answer)
     return sorted(set(parts))
 
-# ================== Metrics ==================
-def compute_macro_f1(stats: Dict[str, Dict[str, int]]) -> float:
-    f1s = []
-    for s in stats.values():
-        tp, fp, fn = s["tp"], s["fp"], s["fn"]
-        if tp == fp == fn == 0:
-            continue
-        p = tp / (tp + fp) if tp + fp else 0.0
-        r = tp / (tp + fn) if tp + fn else 0.0
-        if p + r:
-            f1s.append(2 * p * r / (p + r))
-    return sum(f1s) / len(f1s) if f1s else None
 
-def jaccard(pred: Set[str], gold: Set[str]) -> float:
-    if not pred and not gold:
+def answer_set(value: object) -> Set[str]:
+    if isinstance(value, str):
+        return set(normalize_choice_answer(value))
+    if isinstance(value, Sequence):
+        return {str(item).upper() for item in value}
+    raise TypeError(f"Unsupported answer value: {value!r}")
+
+
+def macro_f1(
+    gold_sets: Sequence[Set[str]],
+    predicted_sets: Sequence[Set[str]],
+    labels: Iterable[str],
+) -> float:
+    """Compute Macro-F1 over a fixed label space with zero_division=0."""
+    scores = []
+    for label in labels:
+        tp = sum(label in gold and label in pred for gold, pred in zip(gold_sets, predicted_sets))
+        fp = sum(label not in gold and label in pred for gold, pred in zip(gold_sets, predicted_sets))
+        fn = sum(label in gold and label not in pred for gold, pred in zip(gold_sets, predicted_sets))
+        denominator = 2 * tp + fp + fn
+        scores.append(0.0 if denominator == 0 else 2 * tp / denominator)
+    return sum(scores) / len(scores) if scores else 0.0
+
+
+def jaccard(predicted: Set[str], gold: Set[str]) -> float:
+    if not predicted and not gold:
         return 1.0
-    if not pred and gold:
-        return 0.0
-    return len(pred & gold) / len(pred | gold)
+    return len(predicted & gold) / len(predicted | gold)
 
-# ================== taskA 解析 ==================
+
 def parse_alarm_output(text: str):
-    if not text:
-        return None, None
-    matches = list(re.finditer(r"Status:\s*(\d)", text))
+    matches = list(re.finditer(r"Status:\s*(\d)", text or ""))
     if not matches:
         return None, None
     status = int(matches[-1].group(1))
     fault = None
     if status == 1:
-        rest = text[matches[-1].end():]
-        m = re.search(r"Fault_code:\s*(\d+)", rest)
-        if m:
-            fault = m.group(1)
+        match = re.search(r"Fault_code:\s*(\d+)", text[matches[-1].end():])
+        if match:
+            fault = match.group(1)
     return status, fault
 
-# ================== taskC C1 ==================
+
 def extract_fault_id(output: str) -> Optional[str]:
-    raw = extract_boxed_content(output)
-    m = re.search(r"F\d+", raw.upper()) if raw else None
-    return m.group(0) if m else None
+    boxed = extract_boxed_content(output)
+    match = re.search(r"F\d+", boxed.upper()) if boxed else None
+    return match.group(0) if match else None
 
-# ================== task 推断 ==================
-def infer_task_from_path(path: str):
-    name = path.split("/")[-1]
-    if name == "alarm_judge.jsonl" or name == "alarm_judge_v1.jsonl":
-        return "taskA"
-    if name in {"single_choice.jsonl", "single_choice_v1.jsonl"}:
-        return "taskB", "B1"
-    if name in {"multi_choice.jsonl", "multi_choice_v1.jsonl"}:
-        return "taskB", "B2"
-    if name == "fault_testset.jsonl":
-        return "taskC", "C1"
-    if name == "fault_exclude.jsonl":
-        return "taskC", "C2"
-    if name == "fault_reason.jsonl":
-        return "taskC", "C3"
-    raise ValueError(name)
 
-# ================== 单文件评测 ==================
-def evaluate_file(path: str) -> List[Dict]:
-    task_info = infer_task_from_path(path)
-    results = []
+def infer_subtask(path: Path) -> str:
+    for subtask, names in PREDICTION_CANDIDATES.items():
+        if path.name in names:
+            return subtask
+    raise ValueError(f"Unsupported prediction filename: {path.name}")
 
-    # -------- taskA --------
-    # -------- taskA --------
-    if task_info == "taskA":
-        a1_tp = a1_fp = a1_fn = a1_tn = 0
-        a2_total = a2_correct = 0
-        a1_total = 0
 
-        with open(path, "r", encoding="utf-8") as f:
-            for line in f:
-                if not line.strip():
-                    continue
-                d = json.loads(line)
+def evaluate_task_a(rows: Sequence[dict]) -> List[Dict[str, object]]:
+    tp = fp = fn = tn = 0
+    a2_total = a2_correct = 0
+    for row in rows:
+        gold_status = int(row["is_alarm"])
+        predicted_status, predicted_fault = parse_alarm_output(row.get("output", ""))
+        # The released prompt requires Status 0 or 1. Preserve the published
+        # evaluator's convention of mapping an unparseable answer to Status 0.
+        if predicted_status is None:
+            predicted_status = 0
+        if gold_status == predicted_status == 1:
+            tp += 1
+        elif gold_status == 0 and predicted_status == 1:
+            fp += 1
+        elif gold_status == 1 and predicted_status == 0:
+            fn += 1
+        else:
+            tn += 1
+        if gold_status == 1:
+            a2_total += 1
+            if predicted_status == 1 and predicted_fault == str(row["alarm_type"]):
+                a2_correct += 1
 
-                gold_status = int(d["is_alarm"])
-                pred_status, pred_fault = parse_alarm_output(d.get("output", ""))
-
-                # 若无法解析，视为预测为 0（更合理）
-                if pred_status is None:
-                    pred_status = 0
-
-                a1_total += 1
-
-                # ---- 混淆矩阵完整统计 ----
-                if gold_status == 1 and pred_status == 1:
-                    a1_tp += 1
-                elif gold_status == 0 and pred_status == 1:
-                    a1_fp += 1
-                elif gold_status == 1 and pred_status == 0:
-                    a1_fn += 1
-                elif gold_status == 0 and pred_status == 0:
-                    a1_tn += 1
-
-                # ---- A2 ----
-                if gold_status == 1:
-                    a2_total += 1
-                    if pred_status == 1 and pred_fault == str(d["alarm_type"]):
-                        a2_correct += 1
-
-        precision = a1_tp / (a1_tp + a1_fp) if (a1_tp + a1_fp) else None
-        recall = a1_tp / (a1_tp + a1_fn) if (a1_tp + a1_fn) else None
-        alarm_rate = (a1_tp + a1_fp) / a1_total if a1_total else None
-
-        results.append({
-            "task": "taskA",
+    recall = tp / (tp + fn) if tp + fn else 0.0
+    precision = tp / (tp + fp) if tp + fp else 0.0
+    beta_squared = 4.0
+    f2 = (
+        (1 + beta_squared) * precision * recall / (beta_squared * precision + recall)
+        if precision + recall else 0.0
+    )
+    return [
+        {
+            "task": "A",
             "subtask": "A1",
-            "num_samples": a1_total,
-            "precision_fault": precision,
-            "recall_fault": recall,
-            "alarm_rate": alarm_rate,
-            "tp": a1_tp,
-            "fp": a1_fp,
-            "fn": a1_fn,
-            "tn": a1_tn,
-            "accuracy": None,
-            "macro_f1": None,
-            "fault_coverage": None,
-            "jaccard": None,
-            "missing_robustness": None,
-        })
-
-        results.append({
-            "task": "taskA",
+            "num_samples": len(rows),
+            "recall": recall,
+            "f2": f2,
+            "precision": precision,
+            "tp": tp,
+            "fp": fp,
+            "fn": fn,
+            "tn": tn,
+        },
+        {
+            "task": "A",
             "subtask": "A2",
             "num_samples": a2_total,
-            "accuracy": a2_correct / a2_total if a2_total else None,
-            "precision_fault": None,
-            "recall_fault": None,
-            "macro_f1": None,
-            "fault_coverage": None,
-            "jaccard": None,
-            "missing_robustness": None,
-        })
+            "accuracy": a2_correct / a2_total if a2_total else 0.0,
+        },
+    ]
 
-        return results
 
-    # -------- taskB / taskC --------
-    task, subtask = task_info
-    total = correct = 0
-    coverage_sum = jaccard_sum = 0.0
-    missing_total = missing_correct = 0
-    label_stats = {}
-
-    with open(path, "r", encoding="utf-8") as f:
-        for line in f:
-            if not line.strip():
-                continue
-            d = json.loads(line)
-            total += 1
-
-            # ===== taskB =====
-            if task == "taskB":
-                pred = set(normalize_choice_answer(extract_boxed_content(d.get("output", ""))))
-                gold = set(d["answer"])
-
-                if pred == gold:
-                    correct += 1
-
-                for l in pred | gold:
-                    label_stats.setdefault(l, {"tp": 0, "fp": 0, "fn": 0})
-                    if l in pred and l in gold:
-                        label_stats[l]["tp"] += 1
-                    elif l in pred:
-                        label_stats[l]["fp"] += 1
-                    else:
-                        label_stats[l]["fn"] += 1
-
-                if subtask == "B2":
-                    coverage_sum += len(pred & gold) / len(gold) if gold else 0.0
-                    jaccard_sum += jaccard(pred, gold)
-
-            # ===== taskC =====
-            elif task == "taskC":
-                if subtask == "C1":
-                    gold = d["fault_id"]
-                    pred = extract_fault_id(d.get("output", ""))
-
-                    if pred == gold:
-                        correct += 1
-
-                    for l in {gold, pred} - {None}:
-                        label_stats.setdefault(l, {"tp": 0, "fp": 0, "fn": 0})
-
-                    if pred == gold:
-                        label_stats[gold]["tp"] += 1
-                    else:
-                        if pred:
-                            label_stats[pred]["fp"] += 1
-                        label_stats[gold]["fn"] += 1
-
-                    if d.get("completeness", 1.0) < 1.0:
-                        missing_total += 1
-                        if pred == gold:
-                            missing_correct += 1
-
-                elif subtask in {"C2", "C3"}:
-                    pred = set(normalize_choice_answer(extract_boxed_content(d.get("output", ""))))
-                    gold = set(d["answer"])
-
-                    if pred == gold:
-                        correct += 1
-
-                    if subtask == "C3":
-                        coverage_sum += len(pred & gold) / len(gold) if gold else 0.0
-                        jaccard_sum += jaccard(pred, gold)
-
-    return [{
-        "task": task,
+def evaluate_choice_task(rows: Sequence[dict], subtask: str) -> Dict[str, object]:
+    gold_sets = [answer_set(row["answer"]) for row in rows]
+    predicted_sets = [
+        set(normalize_choice_answer(extract_boxed_content(row.get("output", ""))))
+        for row in rows
+    ]
+    exact = [gold == predicted for gold, predicted in zip(gold_sets, predicted_sets)]
+    result: Dict[str, object] = {
+        "task": "B" if subtask.startswith("B") else "C",
         "subtask": subtask,
-        "num_samples": total,
-        "accuracy": correct / total if total else None,
-        "precision_fault": None,
-        "recall_fault": None,
-        "macro_f1": compute_macro_f1(label_stats) if label_stats else None,
-        "fault_coverage": coverage_sum / total if coverage_sum else None,
-        "jaccard": jaccard_sum / total if jaccard_sum else None,
-        "missing_robustness": (
-            missing_correct / missing_total if missing_total else None
+        "num_samples": len(rows),
+        "exact_accuracy": sum(exact) / len(exact) if exact else 0.0,
+    }
+    if subtask == "B1":
+        labels = sorted(set().union(*gold_sets))
+        result["macro_f1"] = macro_f1(gold_sets, predicted_sets, labels)
+        result["label_space"] = labels
+    if subtask in {"B2", "C3"}:
+        scores = [jaccard(predicted, gold) for gold, predicted in zip(gold_sets, predicted_sets)]
+        result["jaccard"] = sum(scores) / len(scores) if scores else 0.0
+    return result
+
+
+def evaluate_c1(rows: Sequence[dict]) -> Dict[str, object]:
+    gold_sets = [{str(row["fault_id"])} for row in rows]
+    predicted_sets = []
+    for row in rows:
+        prediction = extract_fault_id(row.get("output", ""))
+        predicted_sets.append({prediction} if prediction else set())
+    exact = [gold == predicted for gold, predicted in zip(gold_sets, predicted_sets)]
+    missing = [index for index, row in enumerate(rows) if float(row.get("completeness", 1.0)) < 1.0]
+    labels = sorted(set().union(*gold_sets))
+    return {
+        "task": "C",
+        "subtask": "C1",
+        "num_samples": len(rows),
+        "accuracy": sum(exact) / len(exact) if exact else 0.0,
+        "missing_information_samples": len(missing),
+        "missing_information_accuracy": (
+            sum(exact[index] for index in missing) / len(missing) if missing else None
         ),
-    }]
-
-# ================== Output ==================
-def fmt_percent(x: Optional[float], digits: int = 2) -> Optional[str]:
-    if x is None:
-        return None
-    return f"{x * 100:.{digits}f}%"
+        "macro_f1": macro_f1(gold_sets, predicted_sets, labels),
+        "label_space": labels,
+    }
 
 
-# ================== Main ==================
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Evaluate elevator benchmark predictions.")
-    parser.add_argument("--predictions", required=True, help="Directory containing prediction JSONL files.")
+def evaluate_file(path: Path) -> List[Dict[str, object]]:
+    rows = load_jsonl(path)
+    subtask = infer_subtask(path)
+    if subtask == "A":
+        return evaluate_task_a(rows)
+    if subtask == "C1":
+        return [evaluate_c1(rows)]
+    return [evaluate_choice_task(rows, subtask)]
+
+
+def fmt_percent(value: float) -> str:
+    return f"{100 * value:.2f}%"
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--predictions", type=Path, required=True, help="Directory containing one model's JSONL files")
+    parser.add_argument("--json-output", type=Path, help="Optional path for machine-readable results")
     args = parser.parse_args()
-    print("\n========== 批量评测开始 ==========\n")
-
-    all_results = []
 
     paths = prediction_files(args.predictions)
     if not paths:
         raise SystemExit("No supported prediction JSONL files found in --predictions")
 
+    all_results = []
     for path in paths:
-        rows = evaluate_file(path)
-        for r in rows:
-            all_results.append(r)
-            print(f"{r['task']} {r['subtask']} | N={r['num_samples']}")
-            for k in [
-                "accuracy",
-                "precision_fault",
-                "recall_fault",
-                "macro_f1",
-                "fault_coverage",
-                "jaccard",
-                "missing_robustness",
-            ]:
-                if r.get(k) is not None:
-                    v = r.get(k)
-                    print(f"  {k}: {fmt_percent(v)}")
-            print("-" * 50)
+        for result in evaluate_file(path):
+            all_results.append(result)
+            print(f"{result['task']} {result['subtask']} | N={result['num_samples']}")
+            for key in ("accuracy", "exact_accuracy", "recall", "f2", "macro_f1", "jaccard", "missing_information_accuracy"):
+                if result.get(key) is not None:
+                    print(f"  {key}: {fmt_percent(float(result[key]))}")
 
-    print("\n========== 统一结果表 ==========\n")
-    for r in all_results:
-        print(r)
+    if args.json_output:
+        args.json_output.parent.mkdir(parents=True, exist_ok=True)
+        args.json_output.write_text(json.dumps(all_results, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+if __name__ == "__main__":
+    main()

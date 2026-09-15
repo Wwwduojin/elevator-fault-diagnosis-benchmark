@@ -1,3 +1,5 @@
-# The released evaluator and test-set builder use the Python standard library.
-# Optional dependency for CSV export in build_testset.py:
+# Numerical routines for bootstrap confidence intervals and supervised baselines.
+numpy>=1.24
+
+# Optional tabular export used by build_testset.py.
 pandas>=2.0

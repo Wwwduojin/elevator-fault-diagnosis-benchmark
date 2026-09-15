@@ -1,0 +1,37 @@
+{
+  "protocol": {
+    "description": "Deduplicated comparison cores used in the revised manuscript",
+    "c1_selection": "One lowest-sample_id record per unique (fault_id, observed_symptoms), then restricted to the intersection present in all 14 archived model-output sets",
+    "c2_c3_selection": "One lexicographically canonical option set per unique question stem",
+    "caution": "C2 and C3 contain only 15 unique stems each; estimates therefore have wide uncertainty intervals"
+  },
+  "sets": {
+    "C1": {
+      "source": "data/task_c/fault_testset.jsonl",
+      "source_rows": 200,
+      "source_unique_inputs": 131,
+      "core": "data/task_c_core/fault_testset.jsonl",
+      "core_rows": 105,
+      "source_sha256": "00fda3aa4cb11ea097a755bba9d4945dad3b5d617182e6b9581bf722b57c5d9a",
+      "core_sha256": "ccf68a337cb74bcbba230921d39512daabdd05e5c85a4f7d5a5b09aa05036488"
+    },
+    "C2": {
+      "source": "data/task_c/fault_exclude.jsonl",
+      "source_rows": 250,
+      "source_unique_stems": 15,
+      "core": "data/task_c_core/fault_exclude.jsonl",
+      "core_rows": 15,
+      "source_sha256": "4106a9dee06612df9871f121b9f43eec39f106626a958c723c9401ffbe136ac5",
+      "core_sha256": "6058479fe03c0af1fa0f63e2a2a0a3817e4ea1621d56cfec62a2ea78e7005ef6"
+    },
+    "C3": {
+      "source": "data/task_c/fault_reason.jsonl",
+      "source_rows": 245,
+      "source_unique_stems": 15,
+      "core": "data/task_c_core/fault_reason.jsonl",
+      "core_rows": 15,
+      "source_sha256": "28d3ebfb4cd95b35aa2aa0ac555711831870e25c0f3a288aac56a0bc28660dac",
+      "core_sha256": "3f48d02c3efd2d58c377e6102cfb5abf209ad77444065cc64bf9b85a65b28c45"
+    }
+  }
+}

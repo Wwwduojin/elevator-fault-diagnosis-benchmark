@@ -1,0 +1,590 @@
+{
+  "protocol": {
+    "source": "published common unique C1 core and unique-stem C2/C3 core sets",
+    "test_items": {
+      "C1": 105,
+      "C2": 15,
+      "C3": 15
+    },
+    "bootstrap_replicates": 2000,
+    "random_seed": 20260907,
+    "interval": "two-sided percentile 95% confidence interval",
+    "caution": "The small core sets avoid repeated stems but yield wide uncertainty intervals."
+  },
+  "models": {
+    "claude-sonnet-4-5-20250929": {
+      "fault_testset": {
+        "accuracy": 0.6857142857142857,
+        "missing_information_accuracy": 0.6526315789473685,
+        "macro_f1": 0.6082721550158526,
+        "n": 105,
+        "accuracy_ci95": [
+          0.5904761904761905,
+          0.7714285714285715
+        ],
+        "missing_information_accuracy_ci95": [
+          0.5543189176688251,
+          0.7474771991762283
+        ],
+        "macro_f1_ci95": [
+          0.5033480185076868,
+          0.6530183587562789
+        ]
+      },
+      "fault_exclude": {
+        "n": 15,
+        "exact_accuracy": 0.6666666666666666,
+        "exact_accuracy_ci95": [
+          0.4,
+          0.8666666666666667
+        ]
+      },
+      "fault_reason": {
+        "n": 15,
+        "exact_accuracy": 0.5333333333333333,
+        "exact_accuracy_ci95": [
+          0.26666666666666666,
+          0.8
+        ],
+        "jaccard": 0.8611111111111112,
+        "jaccard_ci95": [
+          0.7833333333333333,
+          0.9388888888888888
+        ]
+      }
+    },
+    "deepseek-r1": {
+      "fault_testset": {
+        "accuracy": 0.5142857142857142,
+        "missing_information_accuracy": 0.5052631578947369,
+        "macro_f1": 0.48598578320216973,
+        "n": 105,
+        "accuracy_ci95": [
+          0.41904761904761906,
+          0.6190476190476191
+        ],
+        "missing_information_accuracy_ci95": [
+          0.40658482142857144,
+          0.6092155172413792
+        ],
+        "macro_f1_ci95": [
+          0.38489458301606944,
+          0.5536204387266818
+        ]
+      },
+      "fault_exclude": {
+        "n": 15,
+        "exact_accuracy": 0.5333333333333333,
+        "exact_accuracy_ci95": [
+          0.26666666666666666,
+          0.8
+        ]
+      },
+      "fault_reason": {
+        "n": 15,
+        "exact_accuracy": 0.2,
+        "exact_accuracy_ci95": [
+          0.0,
+          0.4
+        ],
+        "jaccard": 0.4944444444444444,
+        "jaccard_ci95": [
+          0.3,
+          0.6888888888888888
+        ]
+      }
+    },
+    "deepseek-v3": {
+      "fault_testset": {
+        "accuracy": 0.6666666666666666,
+        "missing_information_accuracy": 0.6526315789473685,
+        "macro_f1": 0.5703484472632406,
+        "n": 105,
+        "accuracy_ci95": [
+          0.580952380952381,
+          0.7523809523809524
+        ],
+        "missing_information_accuracy_ci95": [
+          0.5578947368421052,
+          0.7473684210526316
+        ],
+        "macro_f1_ci95": [
+          0.47626109534722977,
+          0.6332033680305991
+        ]
+      },
+      "fault_exclude": {
+        "n": 15,
+        "exact_accuracy": 0.6,
+        "exact_accuracy_ci95": [
+          0.3333333333333333,
+          0.8666666666666667
+        ]
+      },
+      "fault_reason": {
+        "n": 15,
+        "exact_accuracy": 0.5333333333333333,
+        "exact_accuracy_ci95": [
+          0.26666666666666666,
+          0.8
+        ],
+        "jaccard": 0.8444444444444446,
+        "jaccard_ci95": [
+          0.7555555555555554,
+          0.9277777777777777
+        ]
+      }
+    },
+    "gemini-2.5-pro": {
+      "fault_testset": {
+        "accuracy": 0.7523809523809524,
+        "missing_information_accuracy": 0.7263157894736842,
+        "macro_f1": 0.6885479880302129,
+        "n": 105,
+        "accuracy_ci95": [
+          0.6666666666666666,
+          0.8285714285714286
+        ],
+        "missing_information_accuracy_ci95": [
+          0.63,
+          0.8111111111111111
+        ],
+        "macro_f1_ci95": [
+          0.5779723695858462,
+          0.7391499766743501
+        ]
+      },
+      "fault_exclude": {
+        "n": 15,
+        "exact_accuracy": 0.6666666666666666,
+        "exact_accuracy_ci95": [
+          0.4,
+          0.8666666666666667
+        ]
+      },
+      "fault_reason": {
+        "n": 15,
+        "exact_accuracy": 0.5333333333333333,
+        "exact_accuracy_ci95": [
+          0.3333333333333333,
+          0.8
+        ],
+        "jaccard": 0.8277777777777778,
+        "jaccard_ci95": [
+          0.7277777777777777,
+          0.9222222222222222
+        ]
+      }
+    },
+    "gemini-3-pro-preview": {
+      "fault_testset": {
+        "accuracy": 0.7523809523809524,
+        "missing_information_accuracy": 0.7368421052631579,
+        "macro_f1": 0.6782287887551046,
+        "n": 105,
+        "accuracy_ci95": [
+          0.6666666666666666,
+          0.8285714285714286
+        ],
+        "missing_information_accuracy_ci95": [
+          0.6458333333333334,
+          0.8229166666666666
+        ],
+        "macro_f1_ci95": [
+          0.5687946185339123,
+          0.730146649229319
+        ]
+      },
+      "fault_exclude": {
+        "n": 15,
+        "exact_accuracy": 0.8,
+        "exact_accuracy_ci95": [
+          0.6,
+          1.0
+        ]
+      },
+      "fault_reason": {
+        "n": 15,
+        "exact_accuracy": 0.6,
+        "exact_accuracy_ci95": [
+          0.3333333333333333,
+          0.8666666666666667
+        ],
+        "jaccard": 0.8722222222222221,
+        "jaccard_ci95": [
+          0.7833333333333332,
+          0.95
+        ]
+      }
+    },
+    "gpt-3.5-turbo": {
+      "fault_testset": {
+        "accuracy": 0.5238095238095238,
+        "missing_information_accuracy": 0.49473684210526314,
+        "macro_f1": 0.44356365303209155,
+        "n": 105,
+        "accuracy_ci95": [
+          0.42857142857142855,
+          0.6190476190476191
+        ],
+        "missing_information_accuracy_ci95": [
+          0.39603960396039606,
+          0.59375
+        ],
+        "macro_f1_ci95": [
+          0.3597250459527245,
+          0.5042120422279582
+        ]
+      },
+      "fault_exclude": {
+        "n": 15,
+        "exact_accuracy": 0.8,
+        "exact_accuracy_ci95": [
+          0.6,
+          1.0
+        ]
+      },
+      "fault_reason": {
+        "n": 15,
+        "exact_accuracy": 0.4666666666666667,
+        "exact_accuracy_ci95": [
+          0.2,
+          0.7333333333333333
+        ],
+        "jaccard": 0.8055555555555555,
+        "jaccard_ci95": [
+          0.7055555555555556,
+          0.8944444444444444
+        ]
+      }
+    },
+    "gpt-4-turbo": {
+      "fault_testset": {
+        "accuracy": 0.5714285714285714,
+        "missing_information_accuracy": 0.5578947368421052,
+        "macro_f1": 0.4841355648959336,
+        "n": 105,
+        "accuracy_ci95": [
+          0.47619047619047616,
+          0.6666666666666666
+        ],
+        "missing_information_accuracy_ci95": [
+          0.4574468085106383,
+          0.655922379032258
+        ],
+        "macro_f1_ci95": [
+          0.3879551763144095,
+          0.5505705028976436
+        ]
+      },
+      "fault_exclude": {
+        "n": 15,
+        "exact_accuracy": 0.7333333333333333,
+        "exact_accuracy_ci95": [
+          0.4666666666666667,
+          0.9333333333333333
+        ]
+      },
+      "fault_reason": {
+        "n": 15,
+        "exact_accuracy": 0.6,
+        "exact_accuracy_ci95": [
+          0.3333333333333333,
+          0.8666666666666667
+        ],
+        "jaccard": 0.85,
+        "jaccard_ci95": [
+          0.7444444444444444,
+          0.9444444444444444
+        ]
+      }
+    },
+    "gpt-4o": {
+      "fault_testset": {
+        "accuracy": 0.580952380952381,
+        "missing_information_accuracy": 0.5684210526315789,
+        "macro_f1": 0.46534557406406146,
+        "n": 105,
+        "accuracy_ci95": [
+          0.47619047619047616,
+          0.6761904761904762
+        ],
+        "missing_information_accuracy_ci95": [
+          0.4639175257731959,
+          0.6700025773195877
+        ],
+        "macro_f1_ci95": [
+          0.38495197851416296,
+          0.5256473678405941
+        ]
+      },
+      "fault_exclude": {
+        "n": 15,
+        "exact_accuracy": 0.5333333333333333,
+        "exact_accuracy_ci95": [
+          0.26666666666666666,
+          0.8
+        ]
+      },
+      "fault_reason": {
+        "n": 15,
+        "exact_accuracy": 0.5333333333333333,
+        "exact_accuracy_ci95": [
+          0.26666666666666666,
+          0.8
+        ],
+        "jaccard": 0.8333333333333334,
+        "jaccard_ci95": [
+          0.7333333333333332,
+          0.9222222222222222
+        ]
+      }
+    },
+    "gpt-4o-mini": {
+      "fault_testset": {
+        "accuracy": 0.5238095238095238,
+        "missing_information_accuracy": 0.5052631578947369,
+        "macro_f1": 0.46796026102748783,
+        "n": 105,
+        "accuracy_ci95": [
+          0.4380952380952381,
+          0.6190476190476191
+        ],
+        "missing_information_accuracy_ci95": [
+          0.4065934065934066,
+          0.6020408163265306
+        ],
+        "macro_f1_ci95": [
+          0.36429911681213506,
+          0.532467629577041
+        ]
+      },
+      "fault_exclude": {
+        "n": 15,
+        "exact_accuracy": 0.5333333333333333,
+        "exact_accuracy_ci95": [
+          0.26666666666666666,
+          0.8
+        ]
+      },
+      "fault_reason": {
+        "n": 15,
+        "exact_accuracy": 0.4666666666666667,
+        "exact_accuracy_ci95": [
+          0.2,
+          0.7333333333333333
+        ],
+        "jaccard": 0.7888888888888889,
+        "jaccard_ci95": [
+          0.6722222222222222,
+          0.8888888888888888
+        ]
+      }
+    },
+    "gpt-5.2": {
+      "fault_testset": {
+        "accuracy": 0.6476190476190476,
+        "missing_information_accuracy": 0.631578947368421,
+        "macro_f1": 0.5598108598108598,
+        "n": 105,
+        "accuracy_ci95": [
+          0.5523809523809524,
+          0.7428571428571429
+        ],
+        "missing_information_accuracy_ci95": [
+          0.5280744536362514,
+          0.7272974308300394
+        ],
+        "macro_f1_ci95": [
+          0.45996001156566174,
+          0.6245466589043296
+        ]
+      },
+      "fault_exclude": {
+        "n": 15,
+        "exact_accuracy": 0.6,
+        "exact_accuracy_ci95": [
+          0.3333333333333333,
+          0.8666666666666667
+        ]
+      },
+      "fault_reason": {
+        "n": 15,
+        "exact_accuracy": 0.5333333333333333,
+        "exact_accuracy_ci95": [
+          0.26666666666666666,
+          0.8
+        ],
+        "jaccard": 0.8055555555555556,
+        "jaccard_ci95": [
+          0.6888888888888888,
+          0.9111111111111111
+        ]
+      }
+    },
+    "qwen3-235b-a22b-instruct-2507": {
+      "fault_testset": {
+        "accuracy": 0.6952380952380952,
+        "missing_information_accuracy": 0.6736842105263158,
+        "macro_f1": 0.655574033446464,
+        "n": 105,
+        "accuracy_ci95": [
+          0.6,
+          0.780952380952381
+        ],
+        "missing_information_accuracy_ci95": [
+          0.5757575757575758,
+          0.7634408602150538
+        ],
+        "macro_f1_ci95": [
+          0.5257328874217971,
+          0.7234895525981251
+        ]
+      },
+      "fault_exclude": {
+        "n": 15,
+        "exact_accuracy": 0.6666666666666666,
+        "exact_accuracy_ci95": [
+          0.4,
+          0.8666666666666667
+        ]
+      },
+      "fault_reason": {
+        "n": 15,
+        "exact_accuracy": 0.6,
+        "exact_accuracy_ci95": [
+          0.3333333333333333,
+          0.8666666666666667
+        ],
+        "jaccard": 0.8833333333333333,
+        "jaccard_ci95": [
+          0.8055555555555555,
+          0.961111111111111
+        ]
+      }
+    },
+    "qwen3-8B": {
+      "fault_testset": {
+        "accuracy": 0.5523809523809524,
+        "missing_information_accuracy": 0.5368421052631579,
+        "macro_f1": 0.49246045716297443,
+        "n": 105,
+        "accuracy_ci95": [
+          0.44761904761904764,
+          0.6476190476190476
+        ],
+        "missing_information_accuracy_ci95": [
+          0.4329604029990628,
+          0.6354166666666666
+        ],
+        "macro_f1_ci95": [
+          0.3842078374514243,
+          0.5586850285926868
+        ]
+      },
+      "fault_exclude": {
+        "n": 15,
+        "exact_accuracy": 0.6,
+        "exact_accuracy_ci95": [
+          0.3333333333333333,
+          0.8666666666666667
+        ]
+      },
+      "fault_reason": {
+        "n": 15,
+        "exact_accuracy": 0.4666666666666667,
+        "exact_accuracy_ci95": [
+          0.2,
+          0.7333333333333333
+        ],
+        "jaccard": 0.8111111111111112,
+        "jaccard_ci95": [
+          0.7111111111111109,
+          0.9055555555555554
+        ]
+      }
+    },
+    "qwen3-max": {
+      "fault_testset": {
+        "accuracy": 0.7428571428571429,
+        "missing_information_accuracy": 0.7157894736842105,
+        "macro_f1": 0.6896183519521115,
+        "n": 105,
+        "accuracy_ci95": [
+          0.6571428571428571,
+          0.8285714285714286
+        ],
+        "missing_information_accuracy_ci95": [
+          0.6210154462242563,
+          0.8041293142088749
+        ],
+        "macro_f1_ci95": [
+          0.5760109210639408,
+          0.7576233580367701
+        ]
+      },
+      "fault_exclude": {
+        "n": 15,
+        "exact_accuracy": 0.6666666666666666,
+        "exact_accuracy_ci95": [
+          0.4,
+          0.8666666666666667
+        ]
+      },
+      "fault_reason": {
+        "n": 15,
+        "exact_accuracy": 0.4666666666666667,
+        "exact_accuracy_ci95": [
+          0.2,
+          0.7333333333333333
+        ],
+        "jaccard": 0.6888888888888888,
+        "jaccard_ci95": [
+          0.49430555555555555,
+          0.8666666666666667
+        ]
+      }
+    },
+    "qwen3-next-80b-a3b-instruct": {
+      "fault_testset": {
+        "accuracy": 0.6666666666666666,
+        "missing_information_accuracy": 0.6526315789473685,
+        "macro_f1": 0.5970193486322518,
+        "n": 105,
+        "accuracy_ci95": [
+          0.580952380952381,
+          0.7619047619047619
+        ],
+        "missing_information_accuracy_ci95": [
+          0.5554964539007092,
+          0.7474342105263154
+        ],
+        "macro_f1_ci95": [
+          0.47916518937825525,
+          0.6624402678841618
+        ]
+      },
+      "fault_exclude": {
+        "n": 15,
+        "exact_accuracy": 0.6666666666666666,
+        "exact_accuracy_ci95": [
+          0.4,
+          0.8666666666666667
+        ]
+      },
+      "fault_reason": {
+        "n": 15,
+        "exact_accuracy": 0.6,
+        "exact_accuracy_ci95": [
+          0.3333333333333333,
+          0.8
+        ],
+        "jaccard": 0.85,
+        "jaccard_ci95": [
+          0.7554166666666664,
+          0.9388888888888888
+        ]
+      }
+    }
+  }
+}

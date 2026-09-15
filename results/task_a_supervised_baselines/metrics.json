@@ -1,0 +1,247 @@
+{
+  "protocol": {
+    "data": "data/task_a/alarm_judge.jsonl",
+    "data_records": 5000,
+    "features": [
+      "speed",
+      "pressure",
+      "temperature_in_lift",
+      "temperature_in_room",
+      "temperature_upon_lift",
+      "x_acceleration",
+      "y_acceleration",
+      "z_acceleration"
+    ],
+    "random_seed": 20260907,
+    "folds": 5,
+    "split": "grouped five-fold cross-validation by anonymised elevator_id",
+    "preprocessing": "fold-specific robust centring by median and scaling by interquartile range",
+    "scope": "supervised Task A reference baselines; excluded from zero-shot LLM composite ranking"
+  },
+  "fault_codes": [
+    "1000003",
+    "1000004",
+    "1000005",
+    "1000065",
+    "1000120",
+    "1000218",
+    "6000019"
+  ],
+  "A1": {
+    "Logistic regression": {
+      "metrics": {
+        "accuracy": 0.6192,
+        "recall": 0.6027397260273972,
+        "precision": 0.3283582089552239,
+        "f2": 0.5164319248826291,
+        "tp": 704,
+        "fp": 1440,
+        "fn": 464
+      },
+      "folds": [
+        {
+          "fold": 1,
+          "test_records": 1001,
+          "test_elevators": 50
+        },
+        {
+          "fold": 2,
+          "test_records": 1000,
+          "test_elevators": 50
+        },
+        {
+          "fold": 3,
+          "test_records": 1001,
+          "test_elevators": 49
+        },
+        {
+          "fold": 4,
+          "test_records": 997,
+          "test_elevators": 48
+        },
+        {
+          "fold": 5,
+          "test_records": 1001,
+          "test_elevators": 50
+        }
+      ]
+    },
+    "k-nearest neighbours (k=7)": {
+      "metrics": {
+        "accuracy": 0.72,
+        "recall": 0.7671232876712328,
+        "precision": 0.4426877470355731,
+        "f2": 0.6690561529271207,
+        "tp": 896,
+        "fp": 1128,
+        "fn": 272
+      },
+      "folds": [
+        {
+          "fold": 1,
+          "test_records": 1001,
+          "test_elevators": 50
+        },
+        {
+          "fold": 2,
+          "test_records": 1000,
+          "test_elevators": 50
+        },
+        {
+          "fold": 3,
+          "test_records": 1001,
+          "test_elevators": 49
+        },
+        {
+          "fold": 4,
+          "test_records": 997,
+          "test_elevators": 48
+        },
+        {
+          "fold": 5,
+          "test_records": 1001,
+          "test_elevators": 50
+        }
+      ]
+    },
+    "MLP (8-32-output)": {
+      "metrics": {
+        "accuracy": 0.7078,
+        "recall": 0.8047945205479452,
+        "precision": 0.4325816843074091,
+        "f2": 0.6866325785244705,
+        "tp": 940,
+        "fp": 1233,
+        "fn": 228
+      },
+      "folds": [
+        {
+          "fold": 1,
+          "test_records": 1001,
+          "test_elevators": 50
+        },
+        {
+          "fold": 2,
+          "test_records": 1000,
+          "test_elevators": 50
+        },
+        {
+          "fold": 3,
+          "test_records": 1001,
+          "test_elevators": 49
+        },
+        {
+          "fold": 4,
+          "test_records": 997,
+          "test_elevators": 48
+        },
+        {
+          "fold": 5,
+          "test_records": 1001,
+          "test_elevators": 50
+        }
+      ]
+    }
+  },
+  "A2": {
+    "Logistic regression": {
+      "metrics": {
+        "accuracy": 0.24743150684931506,
+        "macro_f1": 0.22637760866541642
+      },
+      "folds": [
+        {
+          "fold": 1,
+          "test_records": 232,
+          "test_elevators": 29
+        },
+        {
+          "fold": 2,
+          "test_records": 237,
+          "test_elevators": 30
+        },
+        {
+          "fold": 3,
+          "test_records": 235,
+          "test_elevators": 30
+        },
+        {
+          "fold": 4,
+          "test_records": 232,
+          "test_elevators": 29
+        },
+        {
+          "fold": 5,
+          "test_records": 232,
+          "test_elevators": 29
+        }
+      ]
+    },
+    "k-nearest neighbours (k=7)": {
+      "metrics": {
+        "accuracy": 0.3167808219178082,
+        "macro_f1": 0.2950669150617816
+      },
+      "folds": [
+        {
+          "fold": 1,
+          "test_records": 232,
+          "test_elevators": 29
+        },
+        {
+          "fold": 2,
+          "test_records": 237,
+          "test_elevators": 30
+        },
+        {
+          "fold": 3,
+          "test_records": 235,
+          "test_elevators": 30
+        },
+        {
+          "fold": 4,
+          "test_records": 232,
+          "test_elevators": 29
+        },
+        {
+          "fold": 5,
+          "test_records": 232,
+          "test_elevators": 29
+        }
+      ]
+    },
+    "MLP (8-32-output)": {
+      "metrics": {
+        "accuracy": 0.25,
+        "macro_f1": 0.2233628642572774
+      },
+      "folds": [
+        {
+          "fold": 1,
+          "test_records": 232,
+          "test_elevators": 29
+        },
+        {
+          "fold": 2,
+          "test_records": 237,
+          "test_elevators": 30
+        },
+        {
+          "fold": 3,
+          "test_records": 235,
+          "test_elevators": 30
+        },
+        {
+          "fold": 4,
+          "test_records": 232,
+          "test_elevators": 29
+        },
+        {
+          "fold": 5,
+          "test_records": 232,
+          "test_elevators": 29
+        }
+      ]
+    }
+  }
+}

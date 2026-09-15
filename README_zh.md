@@ -1,21 +1,26 @@
 # 电梯故障诊断 Benchmark
 
-本仓库是论文 **A Benchmark for Elevator Fault Diagnosis: Multi-Level Tasks from Perception to Maintenance Decisions** 的公开 Benchmark 资源。
+本仓库提供论文 **A benchmark for elevator fault diagnosis: Multi-level tasks from perception to diagnostic reasoning** 的数据、评测代码和去敏后的分数复核记录。
 
-Benchmark 从三个层次评估电梯故障诊断能力：基于传感器的感知、基于故障分类体系的知识理解，以及不完整信息下的诊断推理。
+Benchmark 包含三个互补层次：（A）基于传感器记录的故障检测与故障代码分类；（B）基于故障分类体系的类别判定与原因识别；（C）不完整或受约束信息下的诊断推理。它是闭集研究基准，不是经过实际维保或安全决策验证的系统。
 
-## Benchmark 任务
+## 任务与数据
 
-| 任务组 | 内容 | 已提供资源 |
-|---|---|---|
-| A | 传感器故障检测与故障代码分类 | 已脱敏数据位于 `data/task_a/` |
-| B1 | 故障类别单选 | `data/task_b/single_choice.jsonl`，47 条 |
-| B2 | 故障原因多选 | `data/task_b/multi_choice.jsonl`，500 条 |
-| C1 | 缺失故障现象下的故障识别 | `data/task_c/fault_testset.jsonl`，200 条 |
-| C2 | 故障处理或排除方法选择 | `data/task_c/fault_exclude.jsonl`，250 条 |
-| C3 | 不完整证据下的多原因推理 | `data/task_c/fault_reason.jsonl`，245 条 |
+| 子任务 | 定义 | 原始公开集 | 修订稿比较集 |
+|---|---|---:|---:|
+| A1 | 基于序列化传感器记录的故障检测 | 5,000 | 5,000 |
+| A2 | A1 故障样本的故障代码分类 | 1,168 | 1,168 |
+| B1 | 故障大类单标签分类 | 47 | 47 |
+| B2 | 故障原因多标签识别 | 500 | 500 |
+| C1 | 故意缺失部分现象时的故障预测 | 200 条生成记录 / 131 个唯一输入 | 105 个全模型共同唯一输入 |
+| C2 | 受约束候选集中的排除方法选择 | 250 条 / 15 个唯一题干 | 15 个规范化题干 |
+| C3 | 受约束候选集中的多原因推理 | 245 条 / 15 个唯一题干 | 15 个规范化题干 |
+
+原始 Task C 数据保留在 `data/task_c/`，修订稿实际使用的去重核心集位于 `data/task_c_core/`，选择方法和 SHA-256 校验值见 `data/task_c_core/manifest.json`。
 
 ## 安装
+
+建议使用 Python 3.8 或更高版本。
 
 ```bash
 python -m venv .venv
@@ -23,69 +28,96 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## 模型评测
+## 评测指标
 
-将模型预测结果放入本地目录，例如：
+| 子任务 | 论文主要报告指标 |
+|---|---|
+| A1 | Recall 和 F2 |
+| A2 | Accuracy |
+| B1 | Accuracy，以及在全部 9 个固定类别上计算的 Macro-F1 |
+| B2 | 严格匹配准确率和 Jaccard |
+| C1 | 缺失信息准确率和固定标签空间 Macro-F1 |
+| C2 | 严格匹配准确率 |
+| C3 | Jaccard |
 
-```text
-predictions/
-├── single_choice.jsonl
-├── multi_choice.jsonl
-├── fault_testset.jsonl
-├── fault_exclude.jsonl
-└── fault_reason.jsonl
-```
+所有指标均由解析后的闭集答案确定性计算。无法解析的选项或故障 ID 记为错误；Task A 中无法解析的状态按已发表评测器的约定映射为“无故障”。论文中的跨任务综合分仅是等权的描述性摘要，主要结果仍是各组成指标及其置信区间。
 
-每行 JSONL 至少应包含任务输入字段、标准答案字段和 `output` 字段。模型最终答案应放在 `\\boxed{}` 中，评测脚本会据此解析选项或故障 ID。
+## 评测单个模型
 
-运行统一评测脚本：
-
-```bash
-python src/evaluate_all.py --predictions predictions
-```
-
-脚本会根据任务输出准确率、Macro-F1、Jaccard、故障覆盖率和缺失信息鲁棒性等指标。
-
-## 测试集构造
-
-`src/build_testset.py` 可以根据 Markdown 格式的故障文档生成 C1 类缺失现象测试集：
+每个 JSONL 记录需包含该任务的真实标签字段和 `output` 字段。选项或故障 ID 从 `\\boxed{...}` 中解析；Task A 使用 `Status:` 和 `Fault_code:`。
 
 ```bash
-python src/build_testset.py \
-  --md_path path/to/fault.md \
-  --out_dir generated_testset \
-  --total_samples 200 \
-  --seed 42
+python src/evaluate_all.py \
+  --predictions my_predictions \
+  --json-output results/my_model_metrics.json
 ```
 
-## 数据公开说明
+与修订稿对比时，Task C 应使用 `data/task_c_core/` 中的记录。
 
-Task A 已以脱敏形式公开。由于合作方保密和设备安全限制，本仓库不包含原始日志以及原始设备编号与品牌的对应关系。
+## 复核论文结果
 
-B/C 文件是由技术资料派生得到的 Benchmark 实例，不是原始维修手册。在正式公开前，请确认派生知识图谱和测试集符合来源资料的许可证以及合作协议。
+`results/parsed_predictions/` 仅保留 14 个模型的行索引、标准答案和解析后的预测标签，已移除原始设备编号、提示词、自由文本回复、推理文本和 API 元数据。可直接复核单个模型：
 
-请勿上传原始维修手册、工业运行日志、API Key、私有模型输出或个人信息。
-
-## 目录结构
-
-```text
-elevator_github_release/
-├── data/
-│   ├── task_a/
-│   ├── task_b/
-│   ├── task_c/
-│   └── knowledge_graph/
-├── src/
-│   ├── build_testset.py
-│   └── evaluate_all.py
-├── predictions/          # 本地模型预测结果，已被 Git 忽略
-├── requirements.txt
-├── README.md
-└── README_zh.md
+```bash
+python src/evaluate_all.py \
+  --predictions results/parsed_predictions/gemini-2.5-pro
 ```
+
+论文使用 2,000 次非参数 bootstrap、随机种子 `20260907`和双侧百分位 95% 置信区间：
+
+```bash
+python src/evaluate_b1_uncertainty.py \
+  --predictions-root results/parsed_predictions
+
+python src/evaluate_task_c_core.py \
+  --predictions-root results/parsed_predictions
+
+python src/build_uncertainty_supplement.py
+```
+
+汇总结果与机器可读的 S1 表位于 `results/uncertainty/`。
+
+用于图 2--3 的组成指标与描述性综合分可通过下列命令重新生成：
+
+```bash
+python src/compute_composites.py
+```
+
+## Task A 传统监督基线
+
+Logistic regression、7-nearest-neighbour 和浅层 MLP 使用 8 个已公开数值特征，按脱敏 `elevator_id` 进行确定性五折分组交叉验证，并在每个训练折内使用中位数/IQR 缩放。它们与零样本 LLM 结果分开报告。
+
+```bash
+python src/run_task_a_baselines.py
+```
+
+## Task C 核心集生成
+
+不提供模型输出时，脚本可生成来源数据层面的唯一集；若提供历史模型输出，还会取所有模型都存在的 C1 共同交集。
+
+```bash
+python src/derive_task_c_core_sets.py \
+  --output-dir generated_task_c_core
+
+python src/derive_task_c_core_sets.py \
+  --archived-outputs-root path/to/model_outputs \
+  --output-dir generated_task_c_common_core
+```
+
+## 模型与推理设置
+
+`qwen3-8B` 和 `qwen3-next-80b-a3b-instruct` 为本地部署，其他 12 个模型通过 API 访问。零样本推理使用 temperature 0.6、top-p 0.95 和最大 16,384 tokens。历史输出并未为每个 API 模型保留服务商端点和运行日期，因此本仓库不推测缺失的元数据。
+
+## 数据公开与使用边界
+
+Task A 已脱敏公开。由于合作方保密与设备安全限制，本仓库不包含原始日志及原始设备编号与品牌的对应关系。已公开数值字段不具备完整的单位、校准和参考范围元数据，不应视为经验证的物理量。
+
+Task B/C 文件是派生的 Benchmark 实例，不是原始技术手册。后续分发时应确保符合来源材料的许可与协议。
+
+请勿上传原始维修手册、工业日志、API Key、未脱敏标识符或个人信息。Benchmark 分数不能证明模型适合实际维保或安全决策。
 
 ## 引用
 
-论文正式发表后，请在此处补充 DOI、仓库地址和正式引用格式。
+论文发表后请补充正式 DOI 与引用信息。仓库：<https://github.com/Wwwduojin/elevator-fault-diagnosis-benchmark>
 
-英文版本见 [README.md](README.md)。
+英文说明见 [README.md](README.md)。
