@@ -23,7 +23,8 @@ with (RESULTS / "task_b1_uncertainty.csv").open(newline="") as handle:
             {
                 "task": "B1",
                 "model": row["model"],
-                "n": "47",
+                "n_core": "47",
+                "n_metric": "47",
                 "metric": row["metric"],
                 "estimate_percent": pct(row["estimate"]),
                 "ci95_low_percent": pct(row["ci95_low"]),
@@ -33,11 +34,13 @@ with (RESULTS / "task_b1_uncertainty.csv").open(newline="") as handle:
 
 with (RESULTS / "task_c_core_metrics.csv").open(newline="") as handle:
     for row in csv.DictReader(handle):
+        task = {"fault_testset": "C1", "fault_exclude": "C2", "fault_reason": "C3"}[row["task"]]
         rows.append(
             {
-                "task": {"fault_testset": "C1", "fault_exclude": "C2", "fault_reason": "C3"}[row["task"]],
+                "task": task,
                 "model": row["model"],
-                "n": row["n"],
+                "n_core": row["n"],
+                "n_metric": "95" if task == "C1" and row["metric"] == "missing_information_accuracy" else row["n"],
                 "metric": row["metric"],
                 "estimate_percent": pct(row["estimate"]),
                 "ci95_low_percent": pct(row["ci95_low"]),
@@ -46,7 +49,7 @@ with (RESULTS / "task_c_core_metrics.csv").open(newline="") as handle:
         )
 
 with OUT.open("w", newline="") as handle:
-    writer = csv.DictWriter(handle, fieldnames=list(rows[0]))
+    writer = csv.DictWriter(handle, fieldnames=list(rows[0]), lineterminator="\n")
     writer.writeheader()
     writer.writerows(rows)
 
